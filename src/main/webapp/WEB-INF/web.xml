@@ -10,7 +10,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-  			classpath:config/spring/spring-mvc.xml
+  			classpath:config/spring/spring-*.xml
   		</param-value>
 		</init-param>
 		<!-- 서버가 구동될때 자동으로 메모리에 올리는 방법 -->
