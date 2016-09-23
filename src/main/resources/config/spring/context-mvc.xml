@@ -32,7 +32,8 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<!-- 인터셉터 추가 -->
+	<!-- 인터셉터 추가 
+	-->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />

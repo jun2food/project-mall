@@ -32,10 +32,7 @@
 	<div class="container">
 		<!-- 코드시작 -->
 		<a href = "${pageContext.request.contextPath}/login/loginForm.do">login</a>
-		<img src="image/topLog/mr.png"><br>
-		<img src="image/topLog/mr1.png"><br>
-		<img src="image/topLog/mr2.png"><br>
-		<img src="image/topLog/mr3.png"><br>
+		<a href = "${pageContext.request.contextPath}/login/loginList.do">LIST</a>
 		
 		
 		<!-- 코드 종료 -->
