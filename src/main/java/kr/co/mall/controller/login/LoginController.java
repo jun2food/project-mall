@@ -11,12 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.co.mall.repository.mapper.LoginDAO;
 import kr.co.mall.repository.vo.MemberVO;
 import kr.co.mall.service.login.LoginService;
-import kr.co.mall.service.login.LoginServiceImpl;
 import kr.co.mall.util.MailSend;
 
 @Controller
@@ -28,6 +27,7 @@ public class LoginController {
 
 	// 회원가입 아이디 체크
 	@RequestMapping("/idCheck.json")
+	@ResponseBody
 	public MemberVO idCheck(String id) {
 		MemberVO member = loginService.loginSelectByOne(id);
 		return member;
