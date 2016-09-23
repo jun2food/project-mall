@@ -3,10 +3,12 @@ package kr.co.mall.repository.mapper;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
+import kr.co.mall.repository.vo.MemberVO;
 import kr.co.mall.util.MyAppSqlConfig;
-import kr.co.mall.vo.MemberVO;
 
+@Repository
 public class LoginDAO {
 	private static SqlSession session = null;
 	public LoginDAO(){

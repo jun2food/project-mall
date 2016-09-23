@@ -2,7 +2,8 @@ package kr.co.mall.service.login;
 
 import java.util.List;
 
-import kr.co.mall.vo.MemberVO;
+import kr.co.mall.repository.vo.MemberVO;
+
 
 public interface LoginService {
 	// 회원가입

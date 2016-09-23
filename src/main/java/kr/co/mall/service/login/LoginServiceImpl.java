@@ -2,11 +2,18 @@ package kr.co.mall.service.login;
 
 import java.util.List;
 
-import kr.co.mall.login.LoginDAO;
-import kr.co.mall.vo.MemberVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import kr.co.mall.repository.mapper.LoginDAO;
+import kr.co.mall.repository.vo.MemberVO;
+
+
+@Service
 public class LoginServiceImpl implements LoginService {
-	private LoginDAO dao = new LoginDAO();
+	
+	@Autowired
+	private LoginDAO dao;
 	@Override
 	public void loginInsert(MemberVO member) {
 		dao.insertLogin(member);
