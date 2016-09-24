@@ -35,10 +35,10 @@ public class LoginController {
 
 	// 회원가입 저장폼
 	@RequestMapping("/signUp.do")
-	public ModelAndView signUp(MemberVO member) {
+	public ModelAndView signUp(MemberVO member, HttpServletRequest req) throws ServletException, IOException {
 		loginService.loginInsert(member);
 		MailSend send = new MailSend();
-		ModelAndView mav = send.mailSend(member);
+		ModelAndView mav = send.mailSend(member, req);
 		return mav;
 	}
 
@@ -86,18 +86,18 @@ public class LoginController {
 	@RequestMapping("/mailCheck.do")
 	public String mailCheck(MemberVO member) throws ServletException, IOException {
 		MemberVO mVO = loginService.loginSelectByOne(member.getId());
-
-		if (mVO != null && mVO.getFlag() == "N") {
+		System.out.println(member.getId());
+		if (mVO != null && mVO.getFlag() == null) {
 			mVO.setId(member.getId());
 			System.out.println("mVO.getId() : " + mVO.getId());
 			mVO.setFlag("Y");
 			System.out.println("mVO.getFlag : " + mVO.getFlag());
 			loginService.loginUpdate(mVO);
-			return "loginForm.do";
+			return "redirect:/main.do";
 		} else if (mVO == null) {
-			return "/main.do";
+			return "redirect:/main.do";
 		} else {
-			return "/main.do";
+			return "redirect:/main.do";
 		}
 
 	}

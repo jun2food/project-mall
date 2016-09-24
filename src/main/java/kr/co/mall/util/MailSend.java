@@ -1,5 +1,6 @@
 package kr.co.mall.util;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -9,20 +10,45 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.mall.repository.vo.MemberVO;
 
 public class MailSend {
-	public ModelAndView mailSend(MemberVO member) {
+	public ModelAndView mailSend(MemberVO member, HttpServletRequest req) throws ServletException, IOException {
 		System.out.println("mailSend 메서드 호출 성공");
 		// String from = request.getParameter("from");
+		String contextPath = req.getContextPath();
+		System.out.println("contextpath:::::::::"+contextPath);
 		String from = "lololoy@naver.com";
 		String to = member.getId();
 		String subject = "Mall - 이메일 인증";
 //		String userIdTemp = member.getUserIdTemp();
-		String content = "<h1><a href='http://localhost:11002/mall/login/mailCheck.do?id="+member.getId()+"'>인증하긔~</a></h1>";
+		String content = "";
+		content+="<body>";
+		content+="<form action='http://localhost:11002/mall/login/mailCheck.do' method='post'>";
+		content+="<div>";
+		content+="<div class='emailFormContext' style=";
+		content+="	margin: auto;";
+		content+="	border: 3px dashed #959595;";
+		content+="	padding: 50px 50px 50px 30px;";
+		content+="	font-size: 30px;";
+		content+="	text-align: center;";
+		content+="	width: 600px;";
+		content+="	line-height: 60px;";
+		content+=">";
+		content+="<input type='hidden' name='id' value='"+member.getId()+"'/>";
+		content+="Mr.BARK에 가입하신 것을 환영합니다.<br>";
+		content+="홈페이지에 가입하시고 싶으신분은<br>";
+		content+="아래 버튼을 클릭해 주세요.<br>";
+		content+="<button class='button_con'>Email Confirm</button>";
+		content+="</div>";
+		content+="</div>";
+		content+="</form>";
+		content+="</body>";
 		//입력값 받음
 		Properties p = new Properties(); // 정보를 담을 객체
 

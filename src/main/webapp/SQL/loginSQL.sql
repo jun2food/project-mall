@@ -12,10 +12,12 @@ create table member(
 drop table member;
 delete from member
 select * from member;
+delete from member where m_id='daehan.ji@gmail.com';
+update member set m_flag=null where m_id='daehan.ji@gmail.com';
 
 
 insert into member (m_id, m_pw, m_name, m_flag)
-values('a','a','b','N')
+values('a','a','b','Y')
 insert into member(m_id, m_pw, m_name, m_flag, m_gender, m_f_id, m_sign_flag)
 values('a','a','a',,,,)
 insert into member (m_id, m_pw, m_name)

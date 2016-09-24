@@ -320,7 +320,7 @@
 	})
 	function ajaxID(id) {
 		$.ajax({
-			url : 'idCheck.do',
+			url : '${pageContext.request.contextPath}/login/idCheck.do',
 			type : 'post',
 			data : {
 				'id' : id
@@ -456,7 +456,9 @@
 			}, function(user) {
 				console.log(user);
 				if (user) {
-				// 유저정보 사용
+				// 유저정보를 보내고 Controller에서 가입이 되있으면 로그인으로
+				// 안되어 있으면 가입하고 로그인하게 설정해야함.
+				
 				}
 			});
 			var uid = response.authResponse.userID;
