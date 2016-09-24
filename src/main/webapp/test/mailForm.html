@@ -15,25 +15,10 @@
 }
 */
 .button_con {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
+
 }
 .button_con:HOVER {
-    background-color: black;
-    color: white;
+      background-color: black;color: white;
     
 }
 </style>
@@ -51,8 +36,30 @@
 Mr.BARK에 가입하신 것을 환영합니다.<br>
 홈페이지에 가입하시고 싶으신분은<br>
 아래 버튼을 클릭해 주세요.<br>
-<button class="button_con">Email Confirm</button>
+<button 
+	style="
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    "
+  	onmouseover="this.style.color='white';this.style.background='black'" 
+  	onmouseout="this.style.color='black';this.style.background='white'" 
+>Email Confirm</button>
 
 </div>
+<a href="##" onmouseover="this.style.color='#66ccff';" onmouseout="this.style.color='#ff0000';"
+style=" text-decoration: none; font-weight: bold; font-size: 5.9em ;color:#ff0000;">12345</a>
 </body>
 </html>
