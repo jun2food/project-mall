@@ -10,16 +10,16 @@ create table member(
 );
 
 drop table member;
-
+delete from member
 select * from member;
 
 
+insert into member (m_id, m_pw, m_name, m_flag)
+values('a','a','b','N')
 insert into member(m_id, m_pw, m_name, m_flag, m_gender, m_f_id, m_sign_flag)
 values('a','a','a',,,,)
 insert into member (m_id, m_pw, m_name)
 values('daehan.ji@Gmail.com','a','a')
-insert into member (m_id, m_pw, m_name, m_flag)
-values('c','b','b',)
 
 
 age_range:Object

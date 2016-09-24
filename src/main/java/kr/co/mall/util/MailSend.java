@@ -22,7 +22,7 @@ public class MailSend {
 		String to = member.getId();
 		String subject = "Mall - 이메일 인증";
 //		String userIdTemp = member.getUserIdTemp();
-		String content = "<h1><a href='http://localhost:11002/shoppignMall/login/mailCheck.do?id="+member.getId()+"'>인증하긔~</a></h1>";
+		String content = "<h1><a href='http://localhost:11002/mall/login/mailCheck.do?id="+member.getId()+"'>인증하긔~</a></h1>";
 		//입력값 받음
 		Properties p = new Properties(); // 정보를 담을 객체
 
@@ -57,13 +57,13 @@ public class MailSend {
 			System.out.println(member.getId());
 		}catch(Exception e){
 			e.printStackTrace();
-			ModelAndView mav = new ModelAndView("joinEmailSend.jsp");
+			ModelAndView mav = new ModelAndView("/login/joinEmailSend");
 			mav.addObject("mailFlag", 0);
 //			out.println("<script>alert('Send Mail Failed..');history.back();</script>");
 			return mav;
 		}
 		//성공시
-		ModelAndView mav = new ModelAndView("joinEmailSend.jsp");
+		ModelAndView mav = new ModelAndView("/login/joinEmailSend");
 		mav.addObject("mailFlag", 1);
 		return mav;
 //		out.println("<script>alert('Send Mail Success!!');location.href='/MyBoard/servlet/join/joinListServlet.jsp';</script>");

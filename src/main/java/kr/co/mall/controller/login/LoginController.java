@@ -26,7 +26,7 @@ public class LoginController {
 
 
 	// 회원가입 아이디 체크
-	@RequestMapping("/idCheck.json")
+	@RequestMapping("/idCheck.do")
 	@ResponseBody
 	public MemberVO idCheck(String id) {
 		MemberVO member = loginService.loginSelectByOne(id);
@@ -46,8 +46,10 @@ public class LoginController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest req) throws ServletException, IOException {
 		HttpSession session = req.getSession();
+		MemberVO memberVO = (MemberVO) session.getAttribute("user");
+		System.out.println("로그아웃 :::"+memberVO.getId()+"님 안녕히 가세요.");
 		session.invalidate();
-		return "redirect:" + req.getContextPath() + "/index.jsp";
+		return "redirect:/main.do";
 	}
 
 
@@ -75,7 +77,8 @@ public class LoginController {
 		if (member != null && member.getPw().equals(pw)) {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", member);
-			return "redirect:" + req.getContextPath() + "/index.jsp";
+			System.out.println("로그인 ::"+member.getId()+"님 환영합니다!!!!");
+			return "redirect:/main.do";
 		}
 		return "redirect:loginForm.do";
 	}
@@ -92,9 +95,9 @@ public class LoginController {
 			loginService.loginUpdate(mVO);
 			return "loginForm.do";
 		} else if (mVO == null) {
-			return "/index.jsp";
+			return "/main.do";
 		} else {
-			return "/index.jsp";
+			return "/main.do";
 		}
 
 	}
