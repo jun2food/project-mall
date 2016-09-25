@@ -11,7 +11,10 @@ create table product(
     p_price int,
     p_name varchar(50),
     p_detail varchar(2000),
-    p_reg_date date
+    p_reg_date date,
+    p_ori varchar(500),
+    p_real varchar(500),
+    p_path varchar(500)
 );
 
 create table image_file(
@@ -49,4 +52,5 @@ create table item_list(
     il_cnt int
 );
 show tables;
-
+use project;
+select * from product;

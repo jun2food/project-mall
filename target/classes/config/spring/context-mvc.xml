@@ -55,6 +55,7 @@
 
 	<mvc:view-controller path="/login/loginForm.do"
 		view-name="login/loginForm" />
+	<mvc:view-controller path="/product/productTop.do" view-name="product/productTop"/>	
 
 	<mvc:default-servlet-handler />
 

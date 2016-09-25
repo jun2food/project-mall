@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row top_one">
 	<div class="col-md-4">
-		<img class="top_logo" src="image/topLog/mr3.png">
+		<img class="top_logo" src="${pageContext.request.contextPath}/image/topLog/mr3.png">
 	</div>
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
@@ -31,7 +31,7 @@
 	<div class="col-md-12 top_div">
 		<ul>
 			<li><div class='top_main_manu'>
-					<a href="#">menu1</a>
+					<a href="${pageContext.request.contextPath}/product/productTop.do">Top</a>
 				</div>
 				<ul>
 					<li><a href="#">1111</a></li>
