@@ -16,13 +16,17 @@
 		<result column="p_ori" property="pOri"/>
 		<result column="p_real" property="pReal"/>
 		<result column="p_path" property="pPath"/>
+		<result column="p_category1" property="pCategory1"/>
+		<result column="p_category2" property="pCategory2"/>
+		<result column="page" property="page"/>
 	</resultMap>
 	
-	<select id="selectRegDate" parameterType="int" resultMap="productMap">
+	<select id="selectRegDate" parameterType="productVO" resultMap="productMap">
 		select *
 		from product
+		where p_category1=#{pCategory1}
 		order by p_reg_date desc
-		<![CDATA[ limit  #{page1}, 8 ]]>
+		<![CDATA[ limit  #{page}, 8 ]]>
 	</select>
 	<select id="selectLowPrice" parameterType="int" resultMap="productMap">
 		select *

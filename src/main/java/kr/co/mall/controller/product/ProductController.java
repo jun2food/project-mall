@@ -15,30 +15,38 @@ import kr.co.mall.service.product.ProductService;
 public class ProductController {
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ProductVO productVO;
 	
 	@RequestMapping("/selectCount.json")
 	@ResponseBody
 	public String selectCount(){
-		
 		return String.valueOf(productService.selectCount());
 	}
 	@RequestMapping("/selectPage.json")
 	@ResponseBody
-	public List<ProductVO>selectPage(String page, String num){
-		System.out.println("컨트롤들어옴");
+	public List<ProductVO>selectPage(String page, String num, String pCategory1,String pCategory2 ){
+		
 		int page1 = Integer.parseInt(page);
-		System.out.println("변환됨들어옴");
+		
+		productVO.setPage(page1);
+		productVO.setpCategory1(pCategory1);
+		productVO.setpCategory2(pCategory2);
+		
 		switch(num){
 		case "1":
-			return productService.selectLowPrice(page1);
+			return productService.selectLowPrice(productVO);
 		case "2" :
-			return productService.selectHighPrice(page1);
+			return productService.selectHighPrice(productVO);
 			
 		case "3" :
-			return productService.selectName(page1);
+			return productService.selectName(productVO);
 		
 		default :	
-			return productService.selectRegDate(page1);
+			System.out.println("디폴트들어옴");
+			 List<ProductVO> pList= productService.selectRegDate(productVO);
+			 System.out.println(pList);
+			return pList;
 			
 		}
 	}

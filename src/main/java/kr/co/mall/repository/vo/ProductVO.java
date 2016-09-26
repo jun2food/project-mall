@@ -2,6 +2,9 @@ package kr.co.mall.repository.vo;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class ProductVO {
 	private int pNo;
 	private int pPrice;
@@ -11,6 +14,16 @@ public class ProductVO {
 	private String pOri;
 	private String pReal;
 	private String pPath;
+	private String pCategory1;
+	private String pCategory2;
+	private int page;
+	
+	public int getPage() {
+		return page;
+	}
+	public void setPage(int page) {
+		this.page = page;
+	}
 	public int getpNo() {
 		return pNo;
 	}
@@ -59,5 +72,18 @@ public class ProductVO {
 	public void setpPath(String pPath) {
 		this.pPath = pPath;
 	}
+	public String getpCategory1() {
+		return pCategory1;
+	}
+	public void setpCategory1(String pCategory1) {
+		this.pCategory1 = pCategory1;
+	}
+	public String getpCategory2() {
+		return pCategory2;
+	}
+	public void setpCategory2(String pCategory2) {
+		this.pCategory2 = pCategory2;
+	}
+	
 	
 }
