@@ -8,7 +8,8 @@ create table member(
     m_f_id varchar(50),
     m_sign_flag varchar(5) default 'N'
 );
-
+show tables
+desc member
 drop table member;
 delete from member
 select * from member;
@@ -17,7 +18,7 @@ update member set m_flag=null where m_id='daehan.ji@gmail.com';
 
 
 insert into member (m_id, m_pw, m_name, m_flag)
-values('a','a','b','Y')
+values('a','a','지','Y')
 insert into member(m_id, m_pw, m_name, m_flag, m_gender, m_f_id, m_sign_flag)
 values('a','a','a',,,,)
 insert into member (m_id, m_pw, m_name)

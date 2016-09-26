@@ -88,9 +88,6 @@
 					<li><a href="#">4444</a></li>
 				</ul></li>
 		</ul>
-
-
-
 	</div>
 </div>
 <!-- 로그인 모달 시작부분 -->
@@ -155,10 +152,10 @@
 					</div>
 				</div>
 				<!-- 끝단 -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-					<button id="btn_in_join" type="button" class="btn btn-primary">SIGN UP</button>
-					<button id="btn_login" class="btn btn-primary">LOGIN</button>
+				<div class="modal-footer modal_button_group">
+					<button id="btn_login" class="btn btn-primary login_button">LOGIN</button><br>
+					<button id="btn_in_fb" type="button" class="btn btn-primary login_button">FACE BOOK LOGIN</button><br>
+					<button type="button" class="btn btn-default login_button" data-dismiss="modal">CLOSE</button><br>
 				</div>
 			</form>
 		</div>
@@ -265,20 +262,18 @@
 <!--  회원가입 모달 끝 부분 -->
 <script>
 	$(".top_div ul li").mouseenter(function() {
-		// 		$(this).find('ul').css('display', 'block')
 		$(this).find('ul').slideDown()
 
 	});
 	$(".top_div ul li").mouseleave(function() {
-		// 		$(this).find('ul').css('display', 'none');
 		$(this).find('ul').slideUp()
 
 	});
-	// 로그인에서 회원가입으로 전환
-	$('#btn_in_join').click(function() {
-		$('#loginForm').modal('hide')
-		$('#signUpForm').modal('show')
-	});
+	// 로그인에서 회원가입으로 전환 (현재 안씀 재확인 요망.)
+// 	$('#btn_in_join').click(function() {
+// 		$('#loginForm').modal('hide')
+// 		$('#signUpForm').modal('show')
+// 	});
 	// 로그인시 아이디 및 비밀번호 확인후 submit 제한걸기.
 	$('#loginForm_submit').submit(function() {
 		var loginFlag = false;
@@ -342,6 +337,7 @@
 				}
 			});
 	// 회원가입 submit event
+// 	var emailSub = $('#signUpForm input[name=id]').val();
 	$('#signUp_submit').submit(function(){
 		var signUpFlag = false;
 		
@@ -358,7 +354,7 @@
 		}
 			console.log('2pw',pwCheck());
 		$.ajax({
-			url : 'idCheck.do',
+			url : '${pageContext.request.contextPath}/login/idCheck.do',
 			type : 'post',
 			data : {
 				'id' : emailSub
@@ -380,6 +376,9 @@
 			
 		})
 		console.log('flag',signUpFlag);
+		if(signUpFlag==true){
+			alert("메일을 확인하여 인증하십시오.")
+		}
 		return signUpFlag;
 	});
 			
@@ -418,8 +417,27 @@
 		}
 	}
 //-------------------------------- 페이스북 부분
-	$('#fb_login').click(function(){
-		FB.login();
+	var user;
+	$('#btn_in_fb').click(function(){
+		if(user){
+			// 나의 DB에 정보가 있으면 로그인.
+			
+			// ------------------
+// 			$.ajax({
+// 				uri:"${pagecontext.request.contextPath}/login/fbLogin",
+// 				type:"post",
+// 				dateType:"json",
+// 				data:user,
+// 				async: false,
+// 				success : function(resultMsg){
+// 				},
+// 				error: function(errorMsg){
+// 				}
+// 			})
+			// 없으면 회원가입후 로그인.
+		}else{
+			FB.login();	
+		}
 	});
 	$('#logout').click(function(){
 		FB.logout();
@@ -453,9 +471,10 @@
 						'last_name', 'age_range', 'link', 'gender',
 						'locale', 'picture', 'timezone',
 						'updated_time', 'verified' ]
-			}, function(user) {
-				console.log(user);
-				if (user) {
+			}, function(user1) {
+				console.log(user1);
+				user = user1
+				if (user1) {
 				// 유저정보를 보내고 Controller에서 가입이 되있으면 로그인으로
 				// 안되어 있으면 가입하고 로그인하게 설정해야함.
 				

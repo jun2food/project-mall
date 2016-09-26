@@ -17,22 +17,23 @@
 <!--  부트스트랩  -->
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-theme.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.1.0.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <link href="${pageContext.request.contextPath}/css/top.css" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="include/top.jsp"%>
 	<div class="container">
 		<!-- 코드시작 -->
-		<a href = "${pageContext.request.contextPath}/login/loginForm.do">login</a>
-		<a href = "${pageContext.request.contextPath}/login/loginList.do">LIST</a>
+		<a href = "${pageContext.request.contextPath}/login/loginForm.do">login</a><br>
+		<a href = "${pageContext.request.contextPath}/login/loginList.do">TEST_LIST</a><br>
+		<a href = "${pageContext.request.contextPath}/myBag/myBagList.do">MYBAG_LIST</a><br>
 		
 		
 		<!-- 코드 종료 -->
