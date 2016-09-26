@@ -25,171 +25,284 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link href="${pageContext.request.contextPath}/css/top.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/top.css"
+	rel="stylesheet">
 
 <style type="text/css">
-	#registProductCount {float: left;}
-	#productregDate {float: right;}
-	#productName {float: right;}
-	#highPrice {float: right;}
-	#lowPrice {float: right;}
-	#inputProduct{width: 1025px;}
-	#inputProduct > div {width: 255px; height: 450px; float: left;}
-	#pagingIcon{clear: both;}
-	#pagingIcon > * {display: inline-block; text-align: center;}
-	footer {clear: both;}
+#registProductCount {
+	float: left;
+}
+
+#productregDate {
+	float: right;
+}
+
+#productName {
+	float: right;
+}
+
+#highPrice {
+	float: right;
+}
+
+#lowPrice {
+	float: right;
+}
+
+#inputProduct {
+	width: 1025px;
+	margin: auto;
+}
+
+#inputProduct>div {
+	width: 255px;
+	height: 450px;
+/* 	float: left; */
+	display: inline-block;
+	text-align: center;
+/* 	margin: auto; */
+}
+
+#pagingIcon {
+	clear: both;
+}
+
+#pagingIcon>* {
+	display: inline-block;
+	text-align: center;
+}
+
+footer {
+	clear: both;
+}
 </style>
 </head>
 <body>
 	<%@ include file="../include/top.jsp"%>
 	<div class="container">
 		<!-- 코드시작 -->
-			<div id=registProductCount></div>
-			<div id=productregDate>신상품</div>
-			<div id=productName>상품명&nbsp;&nbsp;</div>
-			<div id=highPrice>높은가격&nbsp;&nbsp;</div>
-			<div id=lowPrice>낮은가격&nbsp;&nbsp;</div>
-			<hr>
-			
-			<div id= inputProduct></div>
-			<div id=pagingIcon>
-				<p>
-				<img id=firstIcon src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_first.gif"/>
-				</p>
-				<p>
-				<img id=prevIcon src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_prev.gif"/>
-				</p>
-				<ul id="inputPage">
-				
-				</ul>
-				<p>
-				<img id=nextIcon src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_next.gif"/>
-				</p>
-				<p >
-				<img id=lastIcon src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_last.gif"/>
-				</p>
-			</div>
+		<div id=registProductCount></div>
+		<div id=productregDate>신상품</div>
+		<div id=productName>상품명&nbsp;&nbsp;</div>
+		<div id=highPrice>높은가격&nbsp;&nbsp;</div>
+		<div id=lowPrice>낮은가격&nbsp;&nbsp;</div>
+		<hr>
+
+		<div id=inputProduct></div>
+		<div id=pagingIcon>
+			<p>
+				<img id=firstIcon
+					src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_first.gif" />
+			</p>
+			<p>
+				<img id=prevIcon
+					src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_prev.gif" />
+			</p>
+			<ul id="inputPage">
+
+			</ul>
+			<p>
+				<img id=nextIcon
+					src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_next.gif" />
+			</p>
+			<p>
+				<img id=lastIcon
+					src="${pageContext.request.contextPath}/image/pagingIcon/btn_page_last.gif" />
+			</p>
+		</div>
 		<!-- 코드 종료 -->
 		<footer>
 			<%@ include file="../include/bottom.jsp"%>
 		</footer>
 	</div>
-			<script>
-			var page=1;
-			var totalCount;
-			var countList
-			var countPage;
-			var totalPage;
-			var startPage;
-			var endPage;
-			var num=0;
-			
-		
-		
-			var countP= function(){
-				$.ajax({
-					url: "selectCount.json",
-					dataType: "json"
-						
-				})
-				.done(makeCountP)
-			};
-			countP();
-			
-			function makeCountP (result){
-				page=1;
-				countPage=5;
-				totalCount = Number(result);
-				countList= 8;
-			    totalPage = totalCount / countList;
-			if (totalCount % countList > 0) {totalPage++;}
-			if (totalPage < page) {page = totalPage;}
-				startPage = ((page - 1) / countPage) * countPage + 1;
-	    		endPage = startPage + countPage - 1;
-			if (endPage > totalPage) {endPage = totalPage;}
-				$("#registProductCount").html("등록 제품"+result+"개")
-			};
-						
-			var productRDPage = function(page, num){
-				alert(page);
-				$.ajax({
-					url: "selectPage.json",
-					data : {"page" : page, "num" : num},
-					dataType: "json"
-				})
-				.done(makeProductPage)
-			};
-			
-			function makeProductPage(result){
-				
-				var html="";
-				var pCount=0;
-				for(var i = 0; i<result.length; i++){
-					pCount++;
-					var product = result[i];
-					html += "<div id='product" + product.pNo + "'>";
-					if(pCount%5 == 0){
-						$("#product"+product.pNo).css("clear","both");
-					}
-					
-					html += "<img  src = '${pageContext.request.contextPath}/down?path="+product.pPath+"&realName="+product.pReal+"&draw=Y'>"
-					html += "<div>" + product.pName + "</div>";
-					html += "<div>" + product.pPrice + "</div>";
-					html += "</div>";
-				}
-				if (result.length == 0) {
-					html += "<div>게시물이 존재하지 않습니다.</div>";
-				}
-				$("#inputProduct").html(html);
-				}
-			productRDPage(page,num);
+	<script>
+		var pCategory1=2;
+		var pCategory2=1;
+		var page = 1;
+		var totalCount;
+		var countList = 8;
+		var countPage = 5;
+		var totalPage;
+		var startPage;
+		var endPage;
+		var num = 0;
 
-			$("#firstIcon").on("click",function(page,num){
-				if(startPage > 1){
-				page=1;
-				$.ajax({
-					url: "selectPage.json",
-					data : {"page" : page, "num" : num},
-					dataType: "json"
-				})
-				.done(makeProductPage)
+		// 처음 들어왔을때 db에 있는 상품수
+		var countP = function() {
+			$.ajax({
+				url : "selectCount.json",
+				dataType : "json"
+
+			}).done(makeCountP)
+		};
+		countP();
+
+		function makeCountP(result) {
+			totalCount = Number(result);
+			totalPage = parseInt(totalCount / countList);
+			
+			if ((parseInt(totalCount) % parseInt(countList)) > 0) {
+				totalPage++;
+			}
+			
+			if (totalPage < page) {
+				page = totalPage;
+			}
+			startPage = (parseInt((page - 1) / countPage)) * countPage + 1;
+			endPage = startPage + countPage - 1;
+			if (endPage > totalPage) {
+				endPage = totalPage;
+			}
+			$("#registProductCount").html("등록 제품" + result + "개")
+			alert("내가먼저 토탈페이지"+totalPage);
+			inputPage();
+		};
+
+		// 처음 들어왔을때 최신품 기준으로 나오는 첫화면 
+		var productRDPage = function(page, num) {
+			alert(page);
+			$.ajax({
+				url : "selectPage.json",
+				data : {
+					"page" : page,
+					"num" : num,
+					"pCategory1": pCategory1,
+					"pCategory2": pCategory2
+				},
+				dataType : "json"
+			})
+
+			.done(makeProductPage);
+
+		};
+
+		// 화면에 결과값 뿌려주는 부분
+		function makeProductPage(result) {
+			alert("메이크상품 에 들어왔다")
+			var html = "";
+			var pCount = 0;
+			for (var i = 0; i < result.length; i++) {
+				pCount++;
+				var product = result[i];
+				if (pCount % 5 == 0) {
+// 					$("#product" + product.pNo).css("clear", "both");
+				html+= "<br>"
 					
 				}
-			});
-			$("#lastIcon").on("click",function(page,num){
-				if(endPage < totalPage){
-					page=totalPage;
-					$.ajax({
-						url: "selectPage.json",
-						data : {"page" : page, "num" : num},
-						dataType: "json"
-					})
-					.done(makeProductPage)
-				}
-			});
-			$("#prevIcon").on("click",function(page,num){
-				if(page > 1){
-					page--;
-					$.ajax({
-						url: "selectPage.json",
-						data : {"page" : page, "num" : num},
-						dataType: "json"
-					})
-					.done(makeProductPage)
-				}
-			});
-			$("#nextIcon").on("click",function(page,num){
-				if(page < totalPage){
-					page++;
-					$.ajax({
-						url: "selectPage.json",
-						data : {"page" : page, "num" : num},
-						dataType: "json"
-					})
-					.done(makeProductPage)
-				}
-			});
+				html += "<div id='product" + product.pNo + "'>";
+
+				html += "<img  src = '${pageContext.request.contextPath}/down?path="
+						+ product.pPath
+						+ "&realName="
+						+ product.pReal
+						+ "&draw=Y'>"
+				html += "<div>" + product.pName + "</div>";
+				html += "<div>" + product.pPrice + "</div>";
+				html += "</div>";
+			}
+			if (result.length == 0) {
+				html += "<div>게시물이 존재하지 않습니다.</div>";
+			}
+			$("#inputProduct").html(html);
+		}
+		productRDPage(page,num);
+
+		//first 아이콘 눌렀을때
+		$("#firstIcon").on("click", function() {
+			if (startPage >= 1) {
+				page = 1;
+				$.ajax({
+					url : "selectPage.json",
+					data : {
+						"page" : page,
+						"num" : num,
+						"pCategory1": pCategory1,
+						"pCategory2": pCategory2
+					},
+					dataType : "json"
+				}).done(makeProductPage)
+
+			}
+			countP();
+		});
+
+		//last 아이콘 놀렀을때
+		$("#lastIcon").on("click", function() {
+			if (endPage <= totalPage) {
+				alert("안뇽3");
+				page = totalPage;
+				$.ajax({
+					url : "selectPage.json",
+					data : {
+						"page" : page,
+						"num" : num,
+						"pCategory1": pCategory1,
+						"pCategory2": pCategory2
+					},
+					dataType : "json"
+				})
+
+				.done(makeProductPage)
+			}
+			countP();
+		});
+
+		// 이전 아이콘 눌렀을때
+		$("#prevIcon").on("click", function() {
+				alert("prev에 들어옴")
 			
-			</script>
+			if (page > 1) {
+				page--;
+				$.ajax({
+					url : "selectPage.json",
+					data : {
+						"page" : page,
+						"num" : num,
+						"pCategory1": pCategory1,
+						"pCategory2": pCategory2
+					},
+					dataType : "json"
+				}).done(makeProductPage)
+			}
+				countP();
+		});
+
+		//다음 아이콘 눌렀을때
+		$("#nextIcon").on("click", function() {
+				alert("넥스트에 들어옴")
+				alert(page)
+				alert(totalPage)
+				
+			if (page < totalPage) {
+				alert("넥스트에 들어옴2")
+				page++;
+				$.ajax({
+					url : "selectPage.json",
+					data : {
+						"page" : page,
+						"num" : num,
+						"pCategory1": pCategory1,
+						"pCategory2": pCategory2
+					},
+					dataType : "json"
+				}).done(makeProductPage)
+			}
+				countP();
+		});
+		
+		var inputPage= function (){
+			alert("인풋페이지 번호 "+ totalPage);
+			var html="";
+			for(var i = 1; i <= totalPage; i++){
+			html+= "<span id=pageNum"+i">"+i+"</span> | "
+			}
+			
+		$("#inputPage").html(html);
+		};
+		
+		
+		
+		
+	</script>
 </body>
 </html>

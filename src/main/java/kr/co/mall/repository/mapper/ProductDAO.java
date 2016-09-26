@@ -16,21 +16,21 @@ public class ProductDAO {
 	public int selectCount(){
 		return sqlSessionTemplate.selectOne("kr.co.mall.product.ProductDAO.selectCount");
 	}
-	public List<ProductVO> selectRegDate(int page){
-		int page1= (page-1)*8;
-		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectRegDate", page1);
+	public List<ProductVO> selectRegDate(ProductVO productVO){
+		productVO.setPage((productVO.getPage()-1)*8);
+		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectRegDate", productVO);
 				
 	}
-	public List<ProductVO> selectLowPrice(int page){
-		int page1= (page-1)*8;
-		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectLowPrice", page1);
+	public List<ProductVO> selectLowPrice(ProductVO productVO){
+		productVO.setPage((productVO.getPage()-1)*8);
+		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectLowPrice", productVO);
 	}
-	public List<ProductVO> selectHighPrice(int page){
-		int page1= (page-1)*8;
-		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectHighPrice", page1);
+	public List<ProductVO> selectHighPrice(ProductVO productVO){
+		productVO.setPage((productVO.getPage()-1)*8);
+		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectHighPrice", productVO);
 	}
-	public List<ProductVO> selectName(int page){
-		int page1= (page-1)*8;
-		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectName", page1);
+	public List<ProductVO> selectName(ProductVO productVO){
+		productVO.setPage((productVO.getPage()-1)*8);
+		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectName", productVO);
 	}
 }

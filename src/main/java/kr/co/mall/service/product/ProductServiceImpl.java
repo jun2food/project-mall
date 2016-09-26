@@ -20,24 +20,24 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> selectRegDate(int page) {
-		return pDao.selectRegDate(page);
+	public List<ProductVO> selectRegDate(ProductVO productVO) {
+		return pDao.selectRegDate(productVO);
 		
 	}
 
 	@Override
-	public List<ProductVO> selectLowPrice(int page) {
-		return pDao.selectLowPrice(page);
+	public List<ProductVO> selectLowPrice(ProductVO productVO) {
+		return pDao.selectLowPrice(productVO);
 	}
 
 	@Override
-	public List<ProductVO> selectHighPrice(int page) {
-		return pDao.selectHighPrice(page);
+	public List<ProductVO> selectHighPrice(ProductVO productVO) {
+		return pDao.selectHighPrice(productVO);
 	}
 
 	@Override
-	public List<ProductVO> selectName(int page) {
-		return pDao.selectName(page);
+	public List<ProductVO> selectName(ProductVO productVO) {
+		return pDao.selectName(productVO);
 	}
 
 	
