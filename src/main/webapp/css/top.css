@@ -1,11 +1,12 @@
 /*  * {border: 1px solid red;}  */
 #loginForm{z-index: 9995;}
 #signUpForm{z-index: 9995;}
+.modal_button_group{text-align: center;}
+.login_button{width: 200px;margin: 10px 0 10px 0;}
 .body_in_modal div {
 	height: 34px;
 	line-height: 34px;
 }
-
 .top_logo{width: 100px;}
 #top_title_a{text-decoration: none;color: black;}
 .top_title {font-size: 50px;}

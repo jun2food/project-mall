@@ -1,5 +1,2 @@
-show tables
-select * from member
-select * from member
+-- 장바구니 DB test
 
-delete from member where m_id = 'daehan.ji@gmail.com'
