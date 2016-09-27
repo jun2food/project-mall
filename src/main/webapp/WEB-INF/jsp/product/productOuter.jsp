@@ -34,8 +34,9 @@
 }
 
 #productregDate {
-	float: right;
+	float: right; 
 }
+
 
 #productName {
 	float: right;
@@ -50,12 +51,13 @@
 }
 
 #inputProduct {
-	width: 1025px;
+	width: 1140px;
 	margin: auto;
+	
 }
 
 #inputProduct>div {
-	vertical-align: top;
+vertical-align: top;
 	width: 255px;
 	height: 450px;
 /* 	float: left; */
@@ -117,7 +119,7 @@ footer {
 		</footer>
 	</div>
 	<script>
-		var pCategory1=2;
+		var pCategory1=1;
 		var pCategory2=-1;
 		var page = 1;
 		var totalCount;
@@ -382,7 +384,7 @@ footer {
 		
 		
 		
-		
+// $("div[id^=product]").css("","")		
 	</script>
 </body>
 </html>

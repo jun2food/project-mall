@@ -31,62 +31,40 @@
 	<div class="col-md-12 top_div">
 		<ul>
 			<li><div class='top_main_manu'>
-					<a href="${pageContext.request.contextPath}/product/productTop.do">Top</a>
+					<a href="${pageContext.request.contextPath}/product/productOuter.do"">OUTER</a>
 				</div>
 				<ul>
-					<li><a href="#">1111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
+					<li><a href="#">코트</a></li>
+					<li><a href="#">재킷</a></li>
+					<li><a href="#">카디건</a></li>
+					
 				</ul></li>
 			<li><div class='top_main_manu'>
-					<a href="#">menu2</a>
+					<a href="${pageContext.request.contextPath}/product/productTop.do">TOP</a>
 				</div>
 				<ul>
-					<li><a href="#">21111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
+					<li><a href="#">니트/맨투맨</a></li>
+					<li><a href="#">티셔츠</a></li>
+					<li><a href="#">셔츠</a></li>
 				</ul></li>
 			<li><div class='top_main_manu'>
-					<a href="#">menu3</a>
+					<a href="#">PANTS</a>
 				</div>
 				<ul>
-					<li><a href="#">31111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
+					<li><a href="#">슬랙스</a></li>
+					<li><a href="#">캐주얼팬츠</a></li>
+					
 				</ul></li>
 
 			<li><div class='top_main_manu'>
-					<a href="#">menu4</a>
+					<a href="#">SHOES</a>
 				</div>
 				<ul>
-					<li><a href="#">41111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
+					<li><a href="#">스니커즈</a></li>
+					<li><a href="#">레이업슈즈</a></li>
+					
 				</ul></li>
 
-			<li><div class='top_main_manu'>
-					<a href="#">menu5</a>
-				</div>
-				<ul>
-					<li><a href="#">51111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
-				</ul></li>
-
-			<li><div class='top_main_manu'>
-					<a href="#">menu6</a>
-				</div>
-				<ul>
-					<li><a href="#">61111</a></li>
-					<li><a href="#">2222</a></li>
-					<li><a href="#">3333</a></li>
-					<li><a href="#">4444</a></li>
-				</ul></li>
 		</ul>
 	</div>
 </div>
