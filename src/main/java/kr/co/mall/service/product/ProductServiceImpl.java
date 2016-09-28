@@ -15,8 +15,8 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO pDao;
 	
 	@Override
-	public int selectCount() {
-		return pDao.selectCount();
+	public int selectCount(ProductVO productVO) {
+		return pDao.selectCount(productVO);
 	}
 
 	@Override

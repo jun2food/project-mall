@@ -13,8 +13,8 @@ public class ProductDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public int selectCount(){
-		return sqlSessionTemplate.selectOne("kr.co.mall.product.ProductDAO.selectCount");
+	public int selectCount(ProductVO productVO){
+		return sqlSessionTemplate.selectOne("kr.co.mall.product.ProductDAO.selectCount",productVO);
 	}
 	public List<ProductVO> selectRegDate(ProductVO productVO){
 		productVO.setPage((productVO.getPage()-1)*8);

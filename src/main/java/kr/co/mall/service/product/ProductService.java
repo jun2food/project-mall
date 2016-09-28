@@ -6,7 +6,7 @@ import kr.co.mall.repository.vo.ProductVO;
 
 public interface ProductService {
 	//현재 총 게시물수
-	public int selectCount();
+	public int selectCount(ProductVO productVO);
 	//현재 페이지에 따라 보여줄 게시물db
 	public List<ProductVO> selectRegDate(ProductVO productVO);
 	public List<ProductVO> selectLowPrice(ProductVO productVO);
