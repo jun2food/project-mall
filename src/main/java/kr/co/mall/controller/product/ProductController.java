@@ -16,11 +16,20 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private ProductVO productVO;
+	ProductVO productVO;
 	
 	@RequestMapping("/selectCount.json")
 	@ResponseBody
-	public String selectCount(ProductVO productVO){
+	public String selectCount(String pCategory1,String pCategory2 ){
+		productVO.setpCategory2(null);
+		
+		productVO.setpCategory1(pCategory1);
+		if(pCategory2.equals("-1")){
+			System.out.println("나들어옴 1");
+		}else{
+			System.out.println("나들어옴 2");
+			productVO.setpCategory2(pCategory2);
+		}
 		return String.valueOf(productService.selectCount(productVO));
 	}
 	@RequestMapping("/selectPage.json")
@@ -38,7 +47,7 @@ public class ProductController {
 			System.out.println("나들어옴 2");
 			productVO.setpCategory2(pCategory2);
 		}
-		System.out.println(productVO);
+		System.out.println("ca"+productVO.getpCategory2());
 		
 		switch(num){
 		case "1":

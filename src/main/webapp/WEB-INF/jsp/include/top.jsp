@@ -31,39 +31,46 @@
 	<div class="col-md-12 top_div">
 		<ul>
 			<li><div class='top_main_manu'>
-					<a href="${pageContext.request.contextPath}/product/productOuter.do"">OUTER</a>
+					<a href="${pageContext.request.contextPath}/product/productOuter.do">OUTER</a>
 				</div>
 				<ul>
-					<li><a href="#">코트</a></li>
-					<li><a href="#">재킷</a></li>
-					<li><a href="#">카디건</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productCoat.do">COAT</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productJaket.do">JAKET</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productCardigan.do">CARDIGAN</a></li>
 					
 				</ul></li>
 			<li><div class='top_main_manu'>
 					<a href="${pageContext.request.contextPath}/product/productTop.do">TOP</a>
 				</div>
 				<ul>
-					<li><a href="#">니트/맨투맨</a></li>
-					<li><a href="#">티셔츠</a></li>
-					<li><a href="#">셔츠</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productKnit.do">KNIT</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productTshirt.do">T-SHIRT</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productShirt.do">SHIRT</a></li>
 				</ul></li>
 			<li><div class='top_main_manu'>
-					<a href="#">PANTS</a>
+					<a href="${pageContext.request.contextPath}/product/productPants.do">PANTS</a>
 				</div>
 				<ul>
-					<li><a href="#">슬랙스</a></li>
-					<li><a href="#">캐주얼팬츠</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productSlacks.do">SLACKS</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productCasualPants.do">CASUAL-PANTS</a></li>
 					
 				</ul></li>
 
 			<li><div class='top_main_manu'>
-					<a href="#">SHOES</a>
+					<a href="${pageContext.request.contextPath}/product/productShoes.do">SHOES</a>
 				</div>
 				<ul>
-					<li><a href="#">스니커즈</a></li>
-					<li><a href="#">레이업슈즈</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productSneakers.do">SNEAKERS</a></li>
+					<li><a href="${pageContext.request.contextPath}/product/productLayupShoes.do">LACE-SHOES</a></li>
 					
 				</ul></li>
+			<li><div class='top_main_manu'>
+				<a href="#">ETC</a>
+			</div>
+			<ul>
+				<li><a herf="#">검색</a></li>
+			</ul>
+			</li>
 
 		</ul>
 	</div>

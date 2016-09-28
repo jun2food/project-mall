@@ -14,10 +14,15 @@ public class ProductDAO {
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	public int selectCount(ProductVO productVO){
-		return sqlSessionTemplate.selectOne("kr.co.mall.product.ProductDAO.selectCount",productVO);
+		System.out.println("dao카테1" +productVO.getpCategory1());
+		System.out.println("dao카테2" +productVO.getpCategory2());
+		int a = sqlSessionTemplate.selectOne("kr.co.mall.product.ProductDAO.selectCount",productVO);
+		System.out.println(a);
+		return a;
 	}
 	public List<ProductVO> selectRegDate(ProductVO productVO){
 		productVO.setPage((productVO.getPage()-1)*8);
+		System.out.println(productVO.getpCategory2());
 		return sqlSessionTemplate.selectList("kr.co.mall.product.ProductDAO.selectRegDate", productVO);
 				
 	}

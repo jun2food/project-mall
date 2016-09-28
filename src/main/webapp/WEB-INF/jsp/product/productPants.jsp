@@ -119,7 +119,7 @@ footer {
 		</footer>
 	</div>
 	<script>
-		var pCategory1=1;
+		var pCategory1=3;
 		var pCategory2=-1;
 		var page = 1;
 		var totalCount;
@@ -185,7 +185,7 @@ footer {
 
 		// 화면에 결과값 뿌려주는 부분
 		function makeProductPage(result) {
-			
+		
 			var html = "";
 			var pCount = 0;
 			console.log(1)
@@ -240,7 +240,7 @@ footer {
 		//last 아이콘 놀렀을때
 		$("#lastIcon").on("click", function() {
 			if (endPage <= totalPage) {
-			
+	
 				page = totalPage;
 				$.ajax({
 					url : "selectPage.json",
@@ -260,7 +260,7 @@ footer {
 
 		// 이전 아이콘 눌렀을때
 		$("#prevIcon").on("click", function() {
-				
+	
 			
 			if (page > 1) {
 				page--;
@@ -280,10 +280,9 @@ footer {
 
 		//다음 아이콘 눌렀을때
 		$("#nextIcon").on("click", function() {
-			
-				
+		
 			if (page < totalPage) {
-				
+		
 				page++;
 				$.ajax({
 					url : "selectPage.json",

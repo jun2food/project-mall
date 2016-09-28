@@ -159,7 +159,7 @@ footer {
 				endPage = totalPage;
 			}
 			$("#registProductCount").html("등록 제품" + result + "개")
-			alert("내가먼저 토탈페이지"+totalPage);
+			
 			inputPage();
 		};
 
@@ -183,7 +183,7 @@ footer {
 
 		// 화면에 결과값 뿌려주는 부분
 		function makeProductPage(result) {
-			alert("메이크상품 에 들어왔다")
+		
 			var html = "";
 			var pCount = 0;
 			console.log(1)
@@ -258,7 +258,7 @@ footer {
 
 		// 이전 아이콘 눌렀을때
 		$("#prevIcon").on("click", function() {
-				alert("prev에 들어옴")
+			
 			
 			if (page > 1) {
 				page--;
@@ -278,12 +278,10 @@ footer {
 
 		//다음 아이콘 눌렀을때
 		$("#nextIcon").on("click", function() {
-				alert("넥스트에 들어옴")
-				alert(page)
-				alert(totalPage)
+		
 				
 			if (page < totalPage) {
-				alert("넥스트에 들어옴2")
+		
 				page++;
 				$.ajax({
 					url : "selectPage.json",
@@ -300,7 +298,7 @@ footer {
 		});
 		
 		var inputPage= function (){
-			alert("인풋페이지 번호 "+ totalPage);
+			
 			var html="";
 			for(var i = 1; i <= totalPage; i++){
 			html+= "<span id='span"+i+"'>"+i+"</span> | "

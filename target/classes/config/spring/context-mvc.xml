@@ -57,6 +57,18 @@
 		view-name="login/loginForm" />
 	<mvc:view-controller path="/product/productTop.do" view-name="product/productTop"/>	
 	<mvc:view-controller path="/product/productOuter.do" view-name="product/productOuter"/>	
+	<mvc:view-controller path="/product/productPants.do" view-name="product/productPants"/>	
+	<mvc:view-controller path="/product/productShoes.do" view-name="product/productShoes"/>	
+	<mvc:view-controller path="/product/productCoat.do" view-name="product/productCoat"/>	
+	<mvc:view-controller path="/product/productJaket.do" view-name="product/productJaket"/>	
+	<mvc:view-controller path="/product/productCardigan.do" view-name="product/productCardigan"/>	
+	<mvc:view-controller path="/product/productKnit.do" view-name="product/productKnit"/>	
+	<mvc:view-controller path="/product/productTshirt.do" view-name="product/productTshirt"/>	
+	<mvc:view-controller path="/product/productShirt.do" view-name="product/productShirt"/>	
+	<mvc:view-controller path="/product/productSlacks.do" view-name="product/productSlacks"/>	
+	<mvc:view-controller path="/product/productCasualPants.do" view-name="product/productCasualPants"/>	
+	<mvc:view-controller path="/product/productSneakers.do" view-name="product/productSneakers"/>	
+	<mvc:view-controller path="/product/productLayupShoes.do" view-name="product/productLayupShoes"/>	
 
 	<mvc:default-servlet-handler />
 
