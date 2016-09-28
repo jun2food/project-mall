@@ -1,5 +1,7 @@
 package kr.co.mall.repository.vo;
 
+import java.util.List;
+
 public class MemberVO {
 	// 회원넘버
 	private int no;
@@ -20,18 +22,17 @@ public class MemberVO {
 	
 	
 	
-	
 	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getFbId() {
+	public String getfId() {
 		return fId;
 	}
-	public void setFbId(String fbId) {
-		this.fId = fbId;
+	public void setfId(String fId) {
+		this.fId = fId;
 	}
 	public String getSignFlag() {
 		return signFlag;
