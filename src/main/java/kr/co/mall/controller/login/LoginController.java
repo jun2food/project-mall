@@ -24,6 +24,21 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+	// 페이스북
+	@RequestMapping("/fbCheck.do")
+	@ResponseBody
+	public void fbCheck(MemberVO member, HttpServletRequest req) throws ServletException, IOException {
+		System.out.println(member.getId());
+		MemberVO memberLogin = idCheck(member.getId());
+		// 페이스북은 가입. 우리사이트는 가입XXXX
+		if (memberLogin == null) {
+			loginService.loginInsert(member);
+			memberLogin = idCheck(member.getId());
+		}
+		HttpSession session = req.getSession();
+		session.setAttribute("user", member);
+		System.out.println("로그인 ::" + member.getId() + "님 환영합니다!!!!");
+	}
 
 	// 회원가입 아이디 체크
 	@RequestMapping("/idCheck.do")
@@ -47,11 +62,10 @@ public class LoginController {
 	public String logout(HttpServletRequest req) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("user");
-		System.out.println("로그아웃 :::"+memberVO.getId()+"님 안녕히 가세요.");
+		System.out.println("로그아웃 :::" + memberVO.getId() + "님 안녕히 가세요.");
 		session.invalidate();
 		return "redirect:/main.do";
 	}
-
 
 	// 로그인 확인
 	@RequestMapping("/login.do")
@@ -77,7 +91,7 @@ public class LoginController {
 		if (member != null && member.getPw().equals(pw)) {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", member);
-			System.out.println("로그인 ::"+member.getId()+"님 환영합니다!!!!");
+			System.out.println("로그인 ::" + member.getId() + "님 환영합니다!!!!");
 			return "redirect:/main.do";
 		}
 		return "redirect:loginForm.do";
@@ -101,9 +115,10 @@ public class LoginController {
 		}
 
 	}
+
 	@RequestMapping("/loginList.do")
-	public void memberList(Model model){
+	public void memberList(Model model) {
 		List<MemberVO> list = loginService.loginSelect();
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 	}
 }

@@ -27,6 +27,12 @@
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <link href="${pageContext.request.contextPath}/css/top.css"
 	rel="stylesheet">
+<style>
+	.total_place div th, .btn_bag{
+		text-align: center;
+	}
+	.btn{margin: 0 10px 0 10px;}
+</style>
 </head>
 <body>
 	<%@ include file="../include/top.jsp"%>
@@ -39,20 +45,20 @@
 			진행 이미지 산입 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row list_bag">
 			<div class="col-md-12">
 				<table class="table table-hover" >
 					<thead>
 						<tr>
-							<td><input type="checkbox" name=""/></td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>적립금</td><td>배송구분</td><td>배송비</td><td>합계</td><td>선택</td>
+							<td><input type="checkbox" name=""/></td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>배송비</td><td>합계</td><td>선택</td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>체크박스</td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>적립금</td><td>배송구분</td><td>배송비</td><td>합계</td><td>선택</td>
+							<td><input type="checkbox" name=""/></td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>배송비</td><td>합계</td><td>선택</td>
 						</tr>
 						<tr>
-							<td>체크박스</td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>적립금</td><td>배송구분</td><td>배송비</td><td>합계</td><td>선택</td>
+							<td><input type="checkbox" name=""/></td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>배송비</td><td>합계</td><td>선택</td>
 						</tr>
 					</tbody>
 					<tfoot>
@@ -62,6 +68,27 @@
 					</tfoot>
 				</table>
 			</div>
+		</div>
+		<div class="row total_place">
+			<div class="col-md-12">
+				<table class="table table-hover" >
+					<thead>
+						<tr>
+							<th>총 상품금액</th><th>총 배송비</th><th>결제예정금액</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>￦0</th><th>￦0</th><th>￦0</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn_bag">
+			<button class="btn" type="button">전체상품주문</button>
+			<button class="btn" type="button">선택상품주문</button>
+			<button class="btn" type="button">쇼핑계속하기</button>
 		</div>
 		<!-- 코드 종료 -->
 		<footer>

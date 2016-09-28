@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row top_one">
 	<div class="col-md-4">
-		<img class="top_logo" src="${pageContext.request.contextPath}/image/topLog/mr3.png">
+		<a href="${pageContext.request.contextPath}/"><img class="top_logo" src="${pageContext.request.contextPath}/image/topLog/mr3.png"></a>
 	</div>
 	<div class="col-md-4"></div>
 	<div class="col-md-4">
@@ -16,14 +16,14 @@
 				<a href="#" id="logout"> LOGOUT </a> | 
 			</c:otherwise>
 		</c:choose>
-		<a href="#"> MY BAG </a> | 
+		<a href="${pageContext.request.contextPath}/myBag/myBagList.do"> MY BAG </a> | 
 		<a href="#"> MY ORDER </a>
 	</div>
 </div>
 <div class="row top_two">
 	<div class="col-md-3"></div>
 	<div class="col-md-6 top_title">
-		<a href="#" id="top_title_a">MR.PARK</a>
+		<a href="${pageContext.request.contextPath}/" id="top_title_a">MR.PARK</a>
 	</div>
 	<div class="col-md-3">검색</div>
 </div>
@@ -261,19 +261,13 @@
 </div>
 <!--  회원가입 모달 끝 부분 -->
 <script>
+	// 메뉴단 춤추기.
 	$(".top_div ul li").mouseenter(function() {
 		$(this).find('ul').slideDown()
-
 	});
 	$(".top_div ul li").mouseleave(function() {
 		$(this).find('ul').slideUp()
-
 	});
-	// 로그인에서 회원가입으로 전환 (현재 안씀 재확인 요망.)
-// 	$('#btn_in_join').click(function() {
-// 		$('#loginForm').modal('hide')
-// 		$('#signUpForm').modal('show')
-// 	});
 	// 로그인시 아이디 및 비밀번호 확인후 submit 제한걸기.
 	$('#loginForm_submit').submit(function() {
 		var loginFlag = false;
@@ -337,7 +331,6 @@
 				}
 			});
 	// 회원가입 submit event
-// 	var emailSub = $('#signUpForm input[name=id]').val();
 	$('#signUp_submit').submit(function(){
 		var signUpFlag = false;
 		
@@ -418,30 +411,69 @@
 	}
 //-------------------------------- 페이스북 부분
 	var user;
+	// 유저 객체 생성
+	var member = new Object();
 	$('#btn_in_fb').click(function(){
 		if(user){
+			// user >> member 로 객체 전환.
+			member.id = user.email;
+			console.log("user.email ::::" + user.email);
+			console.log("member.id ::::" + member.id);
+			console.log("==================");
+			member.name = user.name;
+			console.log("user.name ::::" + user.name);
+			console.log("member.name ::::" + member.name);
+			console.log("==================");
+			member.flag = "fb";
+			console.log("fb ::::" + "fb");
+			console.log("member.flag ::::" + member.flag);
+			console.log("==================");
+			member.gender = user.gender;
+			console.log("user.gender ::::" + user.gender);
+			console.log("member.gender ::::" + member.gender);
+			console.log("==================");
+			member.fId = user.id;
+			console.log("user.id ::::" + user.id);
+			console.log("member.fId ::::" + member.fId);
+			console.log("==================");
+			member.signFlag = "Y";
+			console.log("Y ::::" + "Y");
+			console.log("member.signFlag ::::" + member.signFlag);
+			console.log("==================");
 			// 나의 DB에 정보가 있으면 로그인.
-			
 			// ------------------
-// 			$.ajax({
-// 				uri:"${pagecontext.request.contextPath}/login/fbLogin",
-// 				type:"post",
-// 				dateType:"json",
-// 				data:user,
+			// 아이디가 있는지 확인
+			var fb_login_flag;
+			$.ajax({
+				uri:"${pagecontext.request.contextPath}/login/fbCheck.do",
+				type:"post",
+				dateType:"json",
+				data:member,
 // 				async: false,
-// 				success : function(resultMsg){
-// 				},
-// 				error: function(errorMsg){
-// 				}
-// 			})
+				success : function(resultMsg){
+					
+					// 로그인 가능 - 로그인
+				},
+				error: function(errorMsg){
+					
+					// 로그인 불가 - 회원가입
+				}
+			})
 			// 없으면 회원가입후 로그인.
 		}else{
 			FB.login();	
 		}
 	});
+	// 페이스 북 로그인 함수(DB)
+// 	function fbLogin(){
+		
+// 	};
+	// 로그아웃
 	$('#logout').click(function(){
+		// 페이스북 로그아웃
 		FB.logout();
-		location.replace("${pageContext.request.contextPath}/login/logout.do"); 
+		// 홈페이지 로그아웃
+		location.replace("${pageContext.request.contextPath}/login/logout.do");
 	});
 	window.fbAsyncInit = function() {
 		//초기화
@@ -475,6 +507,7 @@
 				console.log(user1);
 				user = user1
 				if (user1) {
+					
 				// 유저정보를 보내고 Controller에서 가입이 되있으면 로그인으로
 				// 안되어 있으면 가입하고 로그인하게 설정해야함.
 				
