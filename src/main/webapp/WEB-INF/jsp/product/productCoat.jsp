@@ -120,7 +120,7 @@ footer {
 	</div>
 	<script>
 		var pCategory1=1;
-		var pCategory2=-1;
+		var pCategory2=11;
 		var page = 1;
 		var totalCount;
 		var countList = 8;
@@ -132,6 +132,7 @@ footer {
 
 		// 처음 들어왔을때 db에 있는 상품수
 		var countP = function() {
+			alert("들어오니???")
 			$.ajax({
 				url : "selectCount.json",
 				data : 	{

@@ -34,9 +34,8 @@
 }
 
 #productregDate {
-	float: right; 
+	float: right;
 }
-
 
 #productName {
 	float: right;
@@ -51,13 +50,12 @@
 }
 
 #inputProduct {
-	width: 1140px;
+	width: 1025px;
 	margin: auto;
-	
 }
 
 #inputProduct>div {
-vertical-align: top;
+	vertical-align: top;
 	width: 255px;
 	height: 450px;
 /* 	float: left; */
@@ -119,7 +117,7 @@ footer {
 		</footer>
 	</div>
 	<script>
-		var pCategory1=1;
+		var pCategory1=4;
 		var pCategory2=-1;
 		var page = 1;
 		var totalCount;
@@ -185,7 +183,7 @@ footer {
 
 		// 화면에 결과값 뿌려주는 부분
 		function makeProductPage(result) {
-			
+		
 			var html = "";
 			var pCount = 0;
 			console.log(1)
@@ -260,7 +258,7 @@ footer {
 
 		// 이전 아이콘 눌렀을때
 		$("#prevIcon").on("click", function() {
-				
+		
 			
 			if (page > 1) {
 				page--;
@@ -280,10 +278,9 @@ footer {
 
 		//다음 아이콘 눌렀을때
 		$("#nextIcon").on("click", function() {
-			
-				
+		
 			if (page < totalPage) {
-				
+			
 				page++;
 				$.ajax({
 					url : "selectPage.json",
@@ -300,7 +297,7 @@ footer {
 		});
 		
 		var inputPage= function (){
-		
+
 			var html="";
 			for(var i = 1; i <= totalPage; i++){
 			html+= "<span id='span"+i+"'>"+i+"</span> | "
@@ -382,7 +379,7 @@ footer {
 		
 		
 		
-// $("div[id^=product]").css("","")		
+		
 	</script>
 </body>
 </html>

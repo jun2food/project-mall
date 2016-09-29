@@ -6,7 +6,7 @@
 		select count(*)
 		from product
 		where p_category1=#{pCategory1} 
-		<if test='pCategory2 != null and(pCategory2 eq "pCategory2".toString()) '>
+		<if test="pCategory2 != null">
 		and p_category2=#{pCategory2}
 		</if>
 		
@@ -30,6 +30,9 @@
 		select *
 		from product
 		where p_category1=#{pCategory1}
+		<if test="pCategory2 != null">
+		and p_category2=#{pCategory2}
+		</if>
 		order by p_reg_date desc
 		<![CDATA[ limit  #{page}, 8 ]]>
 	</select>
@@ -37,6 +40,9 @@
 		select *
 		from product
 		where p_category1=#{pCategory1}
+		<if test="pCategory2 != null">
+		and p_category2=#{pCategory2}
+		</if>
 		order by p_price 
 		<![CDATA[ limit  #{page}, 8 ]]>
 	</select>
@@ -44,6 +50,9 @@
 		select *
 		from product
 		where p_category1=#{pCategory1}
+		<if test="pCategory2 != null">
+		and p_category2=#{pCategory2}
+		</if>
 		order by p_price desc
 		<![CDATA[ limit  #{page}, 8 ]]>
 	</select>
@@ -51,6 +60,9 @@
 		select *
 		from product
 		where p_category1=#{pCategory1}
+		<if test="pCategory2 != null">
+		and p_category2=#{pCategory2}
+		</if>
 		order by p_name
 		<![CDATA[ limit  #{page}, 8 ]]>
 	</select>
