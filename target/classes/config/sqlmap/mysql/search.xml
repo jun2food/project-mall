@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mall.search.SearchDAO">
+	<resultMap type="productVO" id="productMap">
+		<result column="p_no" property="pNo"/>
+		<result column="p_price" property="pPrice"/>
+		<result column="p_name" property="pName"/>
+		<result column="p_detail" property="pDetail"/>
+		<result column="p_reg_date" property="pRegDate"/>
+		<result column="p_ori" property="pOri"/>
+		<result column="p_real" property="pReal"/>
+		<result column="p_path" property="pPath"/>
+		<result column="p_category1" property="pCategory1"/>
+		<result column="p_category2" property="pCategory2"/>
+		<result column="page" property="page"/>
+	</resultMap>
+	
+	<select id="searchPage" parameterType="map" resultMap="productMap">
+		select *
+		from product
+		
+		<trim prefix="where" prefixOverrides="and">
+			<if test="pCategory1 != ''">and  p_category1 = #{pCategory1}</if>
+			<if test="pName != ''">and p_name like CONCAT('%',#{pName},'%')</if>
+			<if test="price1 != ''"><![CDATA[and  p_price >= #{price1}]]></if>
+			<if test="price2 != ''"><![CDATA[and  p_price <= #{price2}]]></if>
+			<if test="pCategory2 != ''">and  p_category2 = #{pCategory2}</if>
+		</trim>
+		
+		order by p_reg_date desc
+<!-- 		<![CDATA[ limit  #{page}, 8 ]]> -->
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
