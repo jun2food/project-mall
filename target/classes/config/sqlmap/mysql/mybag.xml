@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mall.repository.mapper.MyBagDAO">
+	<resultMap type="myBagVO" id="mybagMap">
+		<result property="bNo" column="b_no" />
+		<result property="mNo" column="m_no" />
+		<result property="pNo" column="p_no" />
+		<result property="bCnt" column="b_cnt" />
+		<result property="id" column="m_id" />
+		<result property="pPrice" column="p_price" />
+		<result property="pName" column="p_name" />
+		<result property="pReal" column="p_real" />
+		<result property="pPath" column="p_path" />
+	</resultMap>
+	<select id="selectAllMyBag" parameterType="java.util.HashMap" resultMap="mybagMap">
+		select *
+		from member m,mybag b,product p
+		where m.m_no=b.m_no
+		and b.p_no = p.p_no
+		and m.m_id = #{id}
+		order by b.b_no desc
+		limit #{pageNum},5
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

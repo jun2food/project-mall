@@ -16,7 +16,7 @@
 				<a href="#" id="logout"> LOGOUT </a> | 
 			</c:otherwise>
 		</c:choose>
-		<a href="${pageContext.request.contextPath}/myBag/myBagList.do"> MY BAG </a> | 
+		<a href="${pageContext.request.contextPath}/myBag/myBag.do"> MY BAG </a> | 
 		<a href="#"> MY ORDER </a>
 	</div>
 </div>

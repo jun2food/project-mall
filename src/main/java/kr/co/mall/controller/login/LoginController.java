@@ -21,6 +21,7 @@ import kr.co.mall.util.MailSend;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	
 	@Autowired
 	private LoginService loginService;
 

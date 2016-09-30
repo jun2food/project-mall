@@ -53,8 +53,10 @@
 	<mvc:resources location="/js/**" mapping="/js/**" />
 	<mvc:resources location="/bootstrap/**" mapping="/bootstrap/**" />
 
-	<mvc:view-controller path="/login/loginForm.do"
-		view-name="login/loginForm" />
+	<mvc:view-controller path="/login/loginForm.do"	view-name="login/loginForm" />
+
+	<mvc:view-controller path="/myBag/myBag.do"	view-name="myBag/myBag" />
+	
 	<mvc:view-controller path="/product/productTop.do" view-name="product/productTop"/>	
 	<mvc:view-controller path="/product/productOuter.do" view-name="product/productOuter"/>	
 	<mvc:view-controller path="/product/productPants.do" view-name="product/productPants"/>	
