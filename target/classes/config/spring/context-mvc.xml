@@ -69,6 +69,7 @@
 	<mvc:view-controller path="/product/productCasualPants.do" view-name="product/productCasualPants"/>	
 	<mvc:view-controller path="/product/productSneakers.do" view-name="product/productSneakers"/>	
 	<mvc:view-controller path="/product/productLayupShoes.do" view-name="product/productLayupShoes"/>	
+	<mvc:view-controller path="/search/search.do" view-name="search/search"/>	
 
 	<mvc:default-servlet-handler />
 

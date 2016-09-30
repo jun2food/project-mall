@@ -68,7 +68,7 @@
 				<a href="#">ETC</a>
 			</div>
 			<ul>
-				<li><a herf="#">검색</a></li>
+				<li><a href="${pageContext.request.contextPath}/search/search.do">검색</a></li>
 			</ul>
 			</li>
 

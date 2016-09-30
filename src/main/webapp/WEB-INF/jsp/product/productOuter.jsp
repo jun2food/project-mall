@@ -114,6 +114,7 @@ footer {
 			</p>
 		</div>
 		<!-- 코드 종료 -->
+		<img src = "${pageContext.request.contextPath}/upload/2016/09/26/1-11.jpg"/>
 		<footer>
 			<%@ include file="../include/bottom.jsp"%>
 		</footer>
