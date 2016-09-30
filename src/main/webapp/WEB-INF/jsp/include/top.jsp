@@ -30,7 +30,7 @@
 <div class="row top_menu">
 	<div class="col-md-12 top_div">
 		<ul>
-			<li><div class='top_main_manu'>
+			<li><div class='top_main_menu'>
 					<a href="${pageContext.request.contextPath}/product/productOuter.do">OUTER</a>
 				</div>
 				<ul>
@@ -39,7 +39,7 @@
 					<li><a href="${pageContext.request.contextPath}/product/productCardigan.do">CARDIGAN</a></li>
 					
 				</ul></li>
-			<li><div class='top_main_manu'>
+			<li><div class='top_main_menu'>
 					<a href="${pageContext.request.contextPath}/product/productTop.do">TOP</a>
 				</div>
 				<ul>
@@ -47,24 +47,21 @@
 					<li><a href="${pageContext.request.contextPath}/product/productTshirt.do">T-SHIRT</a></li>
 					<li><a href="${pageContext.request.contextPath}/product/productShirt.do">SHIRT</a></li>
 				</ul></li>
-			<li><div class='top_main_manu'>
+			<li><div class='top_main_menu'>
 					<a href="${pageContext.request.contextPath}/product/productPants.do">PANTS</a>
 				</div>
 				<ul>
 					<li><a href="${pageContext.request.contextPath}/product/productSlacks.do">SLACKS</a></li>
 					<li><a href="${pageContext.request.contextPath}/product/productCasualPants.do">CASUAL-PANTS</a></li>
-					
 				</ul></li>
-
-			<li><div class='top_main_manu'>
+			<li><div class='top_main_menu'>
 					<a href="${pageContext.request.contextPath}/product/productShoes.do">SHOES</a>
 				</div>
 				<ul>
 					<li><a href="${pageContext.request.contextPath}/product/productSneakers.do">SNEAKERS</a></li>
 					<li><a href="${pageContext.request.contextPath}/product/productLayupShoes.do">LACE-SHOES</a></li>
-					
 				</ul></li>
-			<li><div class='top_main_manu'>
+			<li><div class='top_main_menu'>
 				<a href="#">ETC</a>
 			</div>
 			<ul>
@@ -428,19 +425,21 @@
 			// 나의 DB에 정보가 있으면 로그인.
 			// ------------------
 			// 아이디가 있는지 확인
-			var fb_login_flag;
+//				var fb_login_flag;
 			$.ajax({
-				uri:"${pagecontext.request.contextPath}/login/fbCheck.do",
+				url:"${pageContext.request.contextPath}/login/fbCheck.do",
 				type:"post",
-				dateType:"json",
 				data:member,
-// 				async: false,
+				dateType:"json",
+//					async: false,
 				success : function(resultMsg){
-					
+					console.log("성공~~~~페이스북~~")
+					location.reload();
+//						$("#loginForm").modal('hide');
 					// 로그인 가능 - 로그인
 				},
 				error: function(errorMsg){
-					
+					console.log("실패~~~~~페이스북~~")
 					// 로그인 불가 - 회원가입
 				}
 			})
