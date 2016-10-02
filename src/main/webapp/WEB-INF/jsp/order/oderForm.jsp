@@ -28,15 +28,14 @@
 <link href="${pageContext.request.contextPath}/css/top.css" rel="stylesheet">
 </head>
 <body>
-	<%@ include file="include/top.jsp"%>
+	<%@ include file="../include/top.jsp"%>
 	<div class="container">
 		<!-- 코드시작 -->
-		<a href = "${pageContext.request.contextPath}/order/orderForm.do">주문하긔</a><br>
-		
+		11111111
 		
 		<!-- 코드 종료 -->
 		<footer>
-			<%@ include file="include/bottom.jsp"%>
+			<%@ include file="../include/bottom.jsp"%>
 		</footer>
 	</div>
 </body>

@@ -6,8 +6,8 @@ import kr.co.mall.repository.vo.MyBagVO;
 
 public interface MyBagService {
 	List<MyBagVO> myBagSelectAll(int pageNum, String id);
-	public void myBagSelectOne();
-	public void myBagInsert();
-	public void myBagUpdate();
-	public void myBagDelete();
+	public void myBagDelete(int[] bNo);
+	public void myBagAllDelete(int mNo);
+	public void myBagUpdateCnt(MyBagVO myBag);
+	public void myBagInsert(MyBagVO myBag);
 }

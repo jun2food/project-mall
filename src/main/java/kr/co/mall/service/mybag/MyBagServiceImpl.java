@@ -19,29 +19,23 @@ public class MyBagServiceImpl implements MyBagService {
 		List<MyBagVO> list = myBagDao.selectAllMyBag(pageNum, id);
 		return list;
 	}
-
 	@Override
-	public void myBagSelectOne() {
-		// TODO Auto-generated method stub
-		
+	public void myBagDelete(int[] bNo) {
+		myBagDao.deleteMyBag(bNo);
 	}
-
 	@Override
-	public void myBagInsert() {
-		// TODO Auto-generated method stub
-		
+	public void myBagAllDelete(int mNo) {
+		myBagDao.deleteAllMyBag(mNo);
 	}
-
 	@Override
-	public void myBagUpdate() {
-		// TODO Auto-generated method stub
-		
+	public void myBagUpdateCnt(MyBagVO myBag) {
+		myBagDao.updateCntMyBag(myBag);
 	}
-
 	@Override
-	public void myBagDelete() {
-		// TODO Auto-generated method stub
-		
+	public void myBagInsert(MyBagVO myBag) {
+		myBagDao.insertCntMyBag(myBag);
 	}
+	
+	
 	
 }

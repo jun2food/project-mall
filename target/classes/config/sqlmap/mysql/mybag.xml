@@ -20,8 +20,23 @@
 		and b.p_no = p.p_no
 		and m.m_id = #{id}
 		order by b.b_no desc
-		limit #{pageNum},5
+<!-- 		limit #{pageNum},5 -->
 	</select>
+	<delete id="deleteMyBag" parameterType="int">
+		delete from mybag where b_no in 
+		<foreach collection="array" item="bNo" open="(" close=")" separator=",">
+			#{bNo}
+		</foreach>
+	</delete>
+	<delete id="deleteAllMyBag" parameterType="int">
+		delete from mybag where m_no = #{mNo} 
+	</delete>
+	<update id="updateCntMyBag" parameterType="myBagVO">
+		update mybag set b_cnt = #{bCnt} where b_no = #{bNo}
+	</update>
+	<insert id="insertCntMyBag" parameterType="myBagVO">
+		insert into mybag(p_no, m_no, b_cnt)values(#{pNo},#{mNo},#{bCnt});
+	</insert>
 </mapper>
 
 

@@ -264,7 +264,7 @@
 			async: false,
 			dataType : 'json',
 			success : function(result) {
-				console.log(result.pw,login_pw);
+// 				console.log(result.pw,login_pw);
 				if (result.pw == login_pw) {
 					loginFlag = true;
 				}else{
@@ -319,15 +319,15 @@
 		var emailSub = $('#signUpForm input[name=id]').val();
 		ajaxID(emailSub);
 		if(emailCheck(emailSub)==false){
-			console.log('1mail',emailCheck(emailSub));
+// 			console.log('1mail',emailCheck(emailSub));
 			return false;
 		}
-			console.log('2mail',emailCheck(emailSub));
+// 			console.log('2mail',emailCheck(emailSub));
 		if( pwCheck() == false){
-			console.log('1pw',pwCheck());
+// 			console.log('1pw',pwCheck());
 			return false;
 		}
-			console.log('2pw',pwCheck());
+// 			console.log('2pw',pwCheck());
 		$.ajax({
 			url : '${pageContext.request.contextPath}/login/idCheck.do',
 			type : 'post',
@@ -338,19 +338,19 @@
 			dataType : 'json',
 			
 			success : function(resultMsg){
-				console.log(11);
+// 				console.log(11);
 				if(resultMsg != "" ){
-				console.log(22);
+// 				console.log(22);
 					signUpFlag = false;
 				}
 			},
 			error: function(errorMsg){
-				console.log(33);
+// 				console.log(33);
 				signUpFlag = true;
 			}
 			
 		})
-		console.log('flag',signUpFlag);
+// 		console.log('flag',signUpFlag);
 		if(signUpFlag==true){
 			alert("메일을 확인하여 인증하십시오.")
 		}
@@ -381,7 +381,7 @@
 	
 	// 이메일 형식 확인 함수
 	function emailCheck(mail) {
-		console.log(mail);
+// 		console.log(mail);
 		var email = mail;
 		var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 		if (regex.test(email) === false) {
@@ -433,13 +433,13 @@
 				dateType:"json",
 //					async: false,
 				success : function(resultMsg){
-					console.log("성공~~~~페이스북~~")
+// 					console.log("성공~~~~페이스북~~")
 					location.reload();
 //						$("#loginForm").modal('hide');
 					// 로그인 가능 - 로그인
 				},
 				error: function(errorMsg){
-					console.log("실패~~~~~페이스북~~")
+// 					console.log("실패~~~~~페이스북~~")
 					// 로그인 불가 - 회원가입
 				}
 			})
@@ -470,13 +470,13 @@
 		//로그인 되는 순간 호출
 		FB.Event.subscribe('auth.login', function(response) {
 //				alert("로그인 되는 순간 호출");
-			console.log("로그인 되는 순간 호출",response);
+// 			console.log("로그인 되는 순간 호출",response);
 			fLoginStatus(response);
 			// 				document.location.reload();
 		});
 		//로그아웃 되는 순간 호출
 		FB.Event.subscribe('auth.logout', function(response) {
-			alert("로그아웃 되는 순간 호출");
+// 			alert("로그아웃 되는 순간 호출");
 			document.location.reload();
 		});
 	};
@@ -488,7 +488,7 @@
 						'locale', 'picture', 'timezone',
 						'updated_time', 'verified' ]
 			}, function(user1) {
-				console.log(user1);
+// 				console.log(user1);
 				user = user1
 				if (user1) {
 					
@@ -499,7 +499,7 @@
 			});
 			var uid = response.authResponse.userID;
 			var accessToken = response.authResponse.accessToken;
-			console.log(accessToken);
+// 			console.log(accessToken);
 
 		} else if (response.status === 'not_authorized') {
 			// the user is logged in to Facebook, 

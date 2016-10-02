@@ -36,9 +36,10 @@ public class LoginController {
 			loginService.loginInsert(member);
 			memberLogin = idCheck(member.getId());
 		}
+		memberLogin = loginService.loginSelectByOne(member.getId());
 		HttpSession session = req.getSession();
-		session.setAttribute("user", member);
-		System.out.println("로그인 ::" + member.getId() + "님 환영합니다!!!!");
+		session.setAttribute("user", memberLogin);
+		System.out.println("로그인 ::" + memberLogin.getId() + "님 환영합니다!!!!");
 	}
 
 	// 회원가입 아이디 체크
