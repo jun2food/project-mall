@@ -4,7 +4,16 @@
 <mapper namespace="kr.co.mall.login.LoginDAO">
 	<insert id="insertLogin" parameterType="memberVO">
 		insert into member(m_id, m_pw, m_name, m_flag, m_gender, m_f_id, m_sign_flag)
-					values(#{id},#{pw},#{name},#{flag, jdbcType=VARCHAR},#{gender, jdbcType=VARCHAR},#{fId, jdbcType=VARCHAR},#{signFlag, jdbcType=VARCHAR})
+					values(#{id},
+					<choose>
+						<when test="pw==null">
+						'fb', 
+						</when>
+						<otherwise>
+						#{pw},
+						</otherwise>
+					</choose>
+					#{name},#{flag, jdbcType=VARCHAR},#{gender, jdbcType=VARCHAR},#{fId, jdbcType=VARCHAR},#{signFlag, jdbcType=VARCHAR})
 	</insert>
 	<resultMap type="memberVO" id="memberMap">
 		<result property="no" column="m_no" />

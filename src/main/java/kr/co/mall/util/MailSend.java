@@ -29,7 +29,7 @@ public class MailSend {
 //		String userIdTemp = member.getUserIdTemp();
 		String content = "";
 		content+="<body>";
-		content+="<form action='http://localhost:11002/mall/login/mailCheck.do' method='post'>";
+		content+="<form action='http://localhost:11002/"+contextPath+"/login/mailCheck.do' method='post'>";
 		content+="<div>";
 		content+="<div style='";
 		content+="	margin: auto;";

@@ -21,6 +21,7 @@ import kr.co.mall.util.MailSend;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	
 	@Autowired
 	private LoginService loginService;
 
@@ -28,7 +29,7 @@ public class LoginController {
 	@RequestMapping("/fbCheck.do")
 	@ResponseBody
 	public void fbCheck(MemberVO member, HttpServletRequest req) throws ServletException, IOException {
-		System.out.println(member.getId());
+		System.out.println("id :::: "+member.getId());
 		MemberVO memberLogin = idCheck(member.getId());
 		// 페이스북은 가입. 우리사이트는 가입XXXX
 		if (memberLogin == null) {

@@ -114,6 +114,7 @@ footer {
 			</p>
 		</div>
 		<!-- 코드 종료 -->
+		<img src = "${pageContext.request.contextPath}/upload/2016/09/26/1-11.jpg"/>
 		<footer>
 			<%@ include file="../include/bottom.jsp"%>
 		</footer>
@@ -198,7 +199,7 @@ footer {
 					
 				}
 				html += "<div id='product" + product.pNo + "'>";
-
+				html += "<a href='${pageContext.request.contextPath}/detail/detailList.do?pNo="+product.pNo+"'>";
 				html += "<img width=248px height=309px  src = '${pageContext.request.contextPath}/down?path="
 						+ product.pPath
 						+ "&realName="
@@ -206,6 +207,7 @@ footer {
 						+ "&draw=Y'>"
 				html += "<div>" + product.pName + "</div>";
 				html += "<div>" + product.pPrice + "</div>";
+				html += "</a>";
 				html += "</div>";
 			}
 			console.log(2)

@@ -49,7 +49,7 @@
 		<property name="configLocation" value="" />
 	</bean>
 
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
 </beans>
