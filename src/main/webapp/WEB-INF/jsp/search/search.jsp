@@ -143,11 +143,9 @@
 					
 				}
 				html += "<div id='search" + search.pNo + "'>";
-<<<<<<< HEAD
-				html += "<a href='${pageContext.request.contextPath}/detail/detailList.do?pNo="+search.pNo+"'>";
-=======
 
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
+				html += "<a href='${pageContext.request.contextPath}/detail/detailList.do?pNo="+search.pNo+"'>";
+
 				html += "<img width=248px height=309px  src = '${pageContext.request.contextPath}/down?path="
 						+ search.pPath
 						+ "&realName="
@@ -155,10 +153,9 @@
 						+ "&draw=Y'>"
 				html += "<div>" + search.pName + "</div>";
 				html += "<div>" + search.pPrice + "</div>";
-<<<<<<< HEAD
+
 				html += "</a>";
-=======
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
+
 				html += "</div>";
 			}
 			console.log(2)
