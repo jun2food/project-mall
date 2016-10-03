@@ -23,10 +23,12 @@ create table product(
 
 delete from product
 
-<<<<<<< HEAD
 drop table product;
 
 
+
+select *
+from product
 
 -- 여기부터 OUTER  부분 DB
 insert into product(p_price,p_name,p_detail,p_ori,p_real,p_path,p_category1,p_category2)

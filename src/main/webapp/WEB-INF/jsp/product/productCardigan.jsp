@@ -196,6 +196,7 @@ footer {
 					
 				}
 				html += "<div id='product" + product.pNo + "'>";
+				html += "<a href='${pageContext.request.contextPath}/detail/detailList.do?pNo="+product.pNo+"'>";
 
 				html += "<img width=248px height=309px  src = '${pageContext.request.contextPath}/down?path="
 						+ product.pPath
@@ -204,6 +205,7 @@ footer {
 						+ "&draw=Y'>"
 				html += "<div>" + product.pName + "</div>";
 				html += "<div>" + product.pPrice + "</div>";
+				html += "</a>";
 				html += "</div>";
 			}
 			console.log(2)

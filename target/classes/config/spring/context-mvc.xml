@@ -57,8 +57,11 @@
 
 	<mvc:view-controller path="/myBag/myBag.do"	view-name="myBag/myBag" />
 	
+<<<<<<< HEAD
+=======
 	<mvc:view-controller path="/order/orderForm.do"	view-name="/order/orderForm" />
 	
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 	<mvc:view-controller path="/product/productTop.do" view-name="product/productTop"/>	
 	<mvc:view-controller path="/product/productOuter.do" view-name="product/productOuter"/>	
 	<mvc:view-controller path="/product/productPants.do" view-name="product/productPants"/>	
@@ -74,6 +77,10 @@
 	<mvc:view-controller path="/product/productSneakers.do" view-name="product/productSneakers"/>	
 	<mvc:view-controller path="/product/productLayupShoes.do" view-name="product/productLayupShoes"/>	
 	<mvc:view-controller path="/search/search.do" view-name="search/search"/>	
+<<<<<<< HEAD
+	<mvc:view-controller path="/file/fileUploadForm.do" view-name="/file/fileUploadForm"/>	
+=======
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 
 	<mvc:default-servlet-handler />
 

@@ -66,6 +66,10 @@
 			</div>
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/search/search.do">검색</a></li>
+<<<<<<< HEAD
+				<li><a href="${pageContext.request.contextPath}/file/fileUploadForm.do">관리자</a></li>
+=======
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 			</ul>
 			</li>
 
@@ -433,13 +437,21 @@
 				dateType:"json",
 //					async: false,
 				success : function(resultMsg){
+<<<<<<< HEAD
+					console.log("성공~~~~페이스북~~")
+=======
 // 					console.log("성공~~~~페이스북~~")
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 					location.reload();
 //						$("#loginForm").modal('hide');
 					// 로그인 가능 - 로그인
 				},
 				error: function(errorMsg){
+<<<<<<< HEAD
+					console.log("실패~~~~~페이스북~~")
+=======
 // 					console.log("실패~~~~~페이스북~~")
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 					// 로그인 불가 - 회원가입
 				}
 			})

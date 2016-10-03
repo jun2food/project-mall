@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.mall.detail.DetailDAO">
+	<resultMap type="productVO" id="detailMap">
+		<result column="p_no" property="pNo"/>
+		<result column="p_price" property="pPrice"/>
+		<result column="p_name" property="pName"/>
+		<result column="p_detail" property="pDetail"/>
+		<result column="p_reg_date" property="pRegDate"/>
+		<result column="p_ori" property="pOri"/>
+		<result column="p_real" property="pReal"/>
+		<result column="p_path" property="pPath"/>
+		<result column="p_category1" property="pCategory1"/>
+		<result column="p_category2" property="pCategory2"/>
+		<result column="page" property="page"/>
+	</resultMap>
+	
+	<select id="detailPage" parameterType="int" resultMap="detailMap">
+		select *
+		from product
+		where p_no = #{pNo}
+	</select>
+		
+	<resultMap type="detailVO" id="imageMap">
+		<result property="ifNo" column="if_no"/>
+		<result property="pNo" column="p_no"/>
+		<result property="ifOri" column="if_ori"/>
+		<result property="ifReal" column="if_real"/>
+		<result property="ifPath" column="if_path"/>
+				
+	</resultMap>
+	
+	
+	<select id="detailImage" parameterType="int" resultMap="imageMap">
+		select *
+		from image_file
+		where p_no = #{pNo}
+		order by if_no
+	
+	</select>
+	
+	<select id="categorySize" parameterType="int" resultType="string">
+		select c_size
+		from categorySize
+		where p_category1=(select p_category1 
+						   from product
+						   where p_no = #{pNo})	
+	
+	</select>
+	<insert id="insertImage" parameterType="detailVO">
+	   	insert into image_file(p_no,if_ori,if_real,if_path)
+	   	values(#{pNo},#{ifOri},#{ifReal},#{ifPath})
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
