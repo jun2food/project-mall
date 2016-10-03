@@ -11,14 +11,16 @@ select * from product;
 
 
 
-insert into mybag(p_no, m_no, b_cnt)
-values(20 ,2 ,1);
-insert into mybag(p_no, m_no, b_cnt)
-values(19 ,2 ,1);
-insert into mybag(p_no, m_no, b_cnt)
-values(21 ,2 ,2);
-insert into mybag(p_no, m_no, b_cnt)
-values(2 ,2 ,3);
+insert into mybag(p_no, m_no, b_cnt, b_size)
+values(20 ,2 ,1, '230(M)');
+insert into mybag(p_no, m_no, b_cnt, b_size)
+values(1 ,2 ,1, '250(M)');
+insert into mybag(p_no, m_no, b_cnt, b_size)
+values(5 ,2 ,1, '240(M)');
+insert into mybag(p_no, m_no, b_cnt, b_size)
+values(10 ,2 ,1, '230(L)');
+insert into mybag(p_no, m_no, b_cnt, b_size)
+values(15 ,2 ,1, '30(L)');
 
 delete from mybag where b_no = 2
 

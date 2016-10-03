@@ -22,6 +22,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-theme.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.1.0.js"></script>
+<script src="${pageContext.request.contextPath}/js/util.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
@@ -70,7 +71,7 @@
 				<table class="table table-hover" >
 					<thead>
 						<tr>
-							<td><input id="sel_box_All" type="checkbox" name=""/></td><td>IMAGE</td><td>PRODUCT INFORMATION </td><td>PRICE</td><td>AMOUNT</td><td>DELIVERY PRICE</td><td>TOTAL PRICE</td><td>SELECT</td>
+							<td><input id="sel_box_All" type="checkbox" name=""/></td><td>IMAGE</td><td>PRODUCT INFORMATION </td><td>PRICE</td><td>AMOUNT</td><td>SIZE</td><td>DELIVERY PRICE</td><td>TOTAL PRICE</td><td>SELECT</td>
 						</tr>
 					</thead>
 					<tbody id="tbody_bagList">
@@ -78,7 +79,7 @@
 					<tfoot>
 						<tr>
 							<td colspan="4"><button id="remove_btn" class="btn_del_bag" type="button">선택상품 삭제</button></td>
-							<td colspan="4"><button id="total_remove_btn" class="btn_del_bag" type="button">장바구니 비우기</button></td>
+							<td colspan="5"><button id="total_remove_btn" class="btn_del_bag" type="button">장바구니 비우기</button></td>
 						</tr>
 					</tfoot>
 				</table>
@@ -144,13 +145,16 @@
 							tableAdd += "<td><div id='sel_name"+result[i].bNo+"'>"+result[i].pName+"</div></td>";
 							tableAdd += "<td><div id='sel_price"+result[i].bNo+"'>"+numberWithCommas(result[i].pPrice)+"</div></td>";
 							tableAdd += "<td><input class='updateCntInput' type='number' min='1' value='"+result[i].bCnt+"'/><br><button class='updateCnt' type='button'>변경</button></td>";
+							tableAdd += "<td><div id='sel_size"+result[i].bNo+"'>"+result[i].bSize+"</div></td>";
 							tableAdd += "<td><div id='sel_delivery"+result[i].bNo+"'>"+numberWithCommas(deliveryPrice)+"</div></td>";
 							tableAdd += "<td><div id='sel_sumSub"+result[i].bNo+"'>"+numberWithCommas(sumPrice+deliveryPrice)+"</div></td>";
 							tableAdd += "<td><button class='btn_sel_order' type='button'>주문하기</button><br>";
 							tableAdd += "<button id='btn_sel_del_"+result[i].bNo+"' class='btn_sel_del' type='button'>×삭제</button></td>";
 							tableAdd += "</tr>";
 							$("#tbody_bagList").append(tableAdd);
+							console.log(result[i].bSize);
 						}
+						console.log(result)
 						// 버튼 이벤트 설정 함수 호출
 						delBtn();
 						// 체크박스 이벤트 설정 호출
@@ -173,10 +177,7 @@
 				}
 			});	
 		};
-		// 숫자를 돈단위로 ---- 숫자를 3자리수로 끊어서 ","붙히고 앞에 ￦ 붙히는 함수
-		function numberWithCommas(price) {
-		    return "￦"+price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		}
+		
 		// 전체체크 박스 눌렀을때 하위 체크박스 선택/해제 함수
 		$("#sel_box_All").on("change",function(){
 			$("#tbody_bagList [id^=sel_box]").each(function(){

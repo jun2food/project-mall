@@ -7,6 +7,7 @@
 		<result property="mNo" column="m_no" />
 		<result property="pNo" column="p_no" />
 		<result property="bCnt" column="b_cnt" />
+		<result property="bSize" column="b_size" />
 		<result property="id" column="m_id" />
 		<result property="pPrice" column="p_price" />
 		<result property="pName" column="p_name" />
@@ -35,7 +36,7 @@
 		update mybag set b_cnt = #{bCnt} where b_no = #{bNo}
 	</update>
 	<insert id="insertCntMyBag" parameterType="myBagVO">
-		insert into mybag(p_no, m_no, b_cnt)values(#{pNo},#{mNo},#{bCnt});
+		insert into mybag(p_no, m_no, b_cnt, b_size)values(#{pNo},#{mNo},#{bCnt},#{b_size});
 	</insert>
 </mapper>
 
