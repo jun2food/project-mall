@@ -1,4 +1,9 @@
-/*  * {border: 1px solid red;}  */
+* {
+/*
+ 	border: 1px solid red; 
+*/	
+	font-family:gulim;
+	}
 #loginForm{z-index: 9995;}
 #signUpForm{z-index: 9995;}
 .modal_button_group{text-align: center;}

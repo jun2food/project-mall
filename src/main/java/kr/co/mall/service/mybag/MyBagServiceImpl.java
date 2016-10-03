@@ -19,6 +19,7 @@ public class MyBagServiceImpl implements MyBagService {
 		List<MyBagVO> list = myBagDao.selectAllMyBag(pageNum, id);
 		return list;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void myBagSelectOne() {
@@ -44,4 +45,25 @@ public class MyBagServiceImpl implements MyBagService {
 		
 	}
 	
+=======
+	@Override
+	public void myBagDelete(int[] bNo) {
+		myBagDao.deleteMyBag(bNo);
+	}
+	@Override
+	public void myBagAllDelete(int mNo) {
+		myBagDao.deleteAllMyBag(mNo);
+	}
+	@Override
+	public void myBagUpdateCnt(MyBagVO myBag) {
+		myBagDao.updateCntMyBag(myBag);
+	}
+	@Override
+	public void myBagInsert(MyBagVO myBag) {
+		myBagDao.insertCntMyBag(myBag);
+	}
+	
+	
+	
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 }

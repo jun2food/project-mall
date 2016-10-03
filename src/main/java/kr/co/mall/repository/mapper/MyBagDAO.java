@@ -22,5 +22,20 @@ public class MyBagDAO {
 		List<MyBagVO> list = sqlSessionTemplate.selectList("selectAllMyBag",map);
 		return list;
 	}
+<<<<<<< HEAD
+=======
+	public void deleteMyBag(int[] bNo){
+		sqlSessionTemplate.delete("deleteMyBag",bNo);
+	}
+	public void deleteAllMyBag(int mNo){
+		sqlSessionTemplate.delete("deleteAllMyBag",mNo);
+	}
+	public void updateCntMyBag(MyBagVO myBag) {
+		sqlSessionTemplate.update("updateCntMyBag",myBag);
+	}
+	public void insertCntMyBag(MyBagVO myBag) {
+		sqlSessionTemplate.insert("insertCntMyBag",myBag);
+	}
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 	
 }

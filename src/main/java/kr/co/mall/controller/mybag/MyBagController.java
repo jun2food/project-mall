@@ -6,7 +6,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.RequestParam;
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.mall.repository.vo.MemberVO;
@@ -28,6 +34,7 @@ public class MyBagController {
 			return null;
 		}
 		String id = member.getId();
+<<<<<<< HEAD
 		System.out.println(pageNum);
 		System.out.println(id);
 		List<MyBagVO> list = myBagService.myBagSelectAll(pageNum, id);
@@ -35,5 +42,26 @@ public class MyBagController {
 			System.out.println(a.getbNo());
 		}
 		return list;
+=======
+		List<MyBagVO> list = myBagService.myBagSelectAll(pageNum, id);
+		return list;
+	}
+	@RequestMapping("/myBagDelete.do")
+	@ResponseBody
+	public void myBagDelete(@RequestBody int[] bNo){
+		myBagService.myBagDelete(bNo);
+	}
+	@RequestMapping("/myBagAllDelete.do")
+	@ResponseBody
+	public void myBagAllDelete(HttpSession session){
+		MemberVO member = (MemberVO)session.getAttribute("user");
+		int mNo = member.getNo();
+		myBagService.myBagAllDelete(mNo);
+	}
+	@RequestMapping("/myBagCntUpdate.do")
+	@ResponseBody
+	public void myBagUpdateCnt(MyBagVO myBag){
+		myBagService.myBagUpdateCnt(myBag);
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 	}
 }

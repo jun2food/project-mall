@@ -4,6 +4,7 @@ create table image_file(
     if_ori varchar(500),
     if_real varchar(500),
     if_path varchar(500)
+<<<<<<< HEAD
 );
 
 create table  categorySize(
@@ -51,3 +52,6 @@ select *
 		from image_file
 		where p_no = 9
 		order by if_no
+=======
+);
+>>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
