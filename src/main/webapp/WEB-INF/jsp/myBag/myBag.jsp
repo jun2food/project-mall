@@ -33,55 +33,13 @@
 		text-align: center;
 	}
 	.btn_div{margin: 0 10px 0 10px;text-align: center;}
-<<<<<<< HEAD
-	.btn_bag{
-	    position: relative;
-	    background-color: 9A9A9A;
-	    border: none;
-	    font-size: 12px;
-	    padding: 10px;
-	    width: 150px;
-	    text-align: center;
-	    -webkit-transition-duration: 0.4s; /* Safari */
-	    transition-duration: 0.4s;
-	    text-decoration: none;
-	    overflow: hidden;
-	    cursor: pointer;
-	    margin: 0 10px 0 10px;
-	}
-	.btn_bag:after,.btn_sel:after {
-	    content: "";
-	    background: black;
-	    display: block;
-	    position: absolute;
-	    padding-top: 300%;
-	    padding-left: 350%;
-	    margin-left: -20px !important;
-	    margin-top: -120%;
-	    opacity: 0;
-	    transition: all 0.8s
-	}
-	.btn_bag:active:after,.btn_sel:active:after {
-	    padding: 0;
-	    margin: 0;
-	    opacity: 1;
-	    transition: 0s
-	}
-	.btn_sel_del, .btn_sel_order  {
-	position: relative;
-=======
 
 	.btn_sel_del, .btn_sel_order, .btn_del_bag, .btn_bag, .btn_sel, .updateCnt {
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
     background-color: white;
     color: black;
     border: 2px solid #555555;
     width: 80px;
     margin: 5px;
-<<<<<<< HEAD
-     overflow: hidden;
-}
-=======
 	}
 	.btn_sel_del:hover, .btn_sel_order:hover, .btn_del_bag:hover, .btn_bag:hover, .btn_sel:hover ,.updateCnt:hover{
 		background-color: #d6d6d6;
@@ -95,7 +53,6 @@
 	tfoot>tr>td:nth-child(2){text-align: right;}
 	.tbody_bagList tr td {vertical-align: middle; }
 	.tbody_bagList tr td *{height: 1000px;}
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 </style>
 </head>
 <body>
@@ -114,31 +71,15 @@
 				<table class="table table-hover" >
 					<thead>
 						<tr>
-<<<<<<< HEAD
 							<td><input id="sel_box_All" type="checkbox" name=""/></td><td>IMAGE</td><td>PRODUCT INFORMATION </td><td>PRICE</td><td>AMOUNT</td><td>SIZE</td><td>DELIVERY PRICE</td><td>TOTAL PRICE</td><td>SELECT</td>
-=======
-<<<<<<< HEAD
-							<td><input id="sel_box_All" type="checkbox" name=""/></td><td>이미지</td><td>상품정보</td><td>판매가</td><td>수량</td><td>배송비</td><td>합계</td><td>선택</td>
-=======
-							<td><input id="sel_box_All" type="checkbox" name=""/></td><td>IMAGE</td><td>PRODUCT INFORMATION </td><td>PRICE</td><td>AMOUNT</td><td>DELIVERY PRICE</td><td>TOTAL PRICE</td><td>SELECT</td>
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
->>>>>>> 28e8b97d5e0f404d82826a815bb112115475c210
 						</tr>
 					</thead>
 					<tbody id="tbody_bagList">
 					</tbody>
 					<tfoot>
 						<tr>
-<<<<<<< HEAD
-							<td colspan="2">[기본배송]</td><td colspan="7">상품구매금액<span id="product_price">1</span>+배송비<span id="delivery">1</span>=합계:</td><td><span id="sum_price">0</span></td>
-=======
 							<td colspan="4"><button id="remove_btn" class="btn_del_bag" type="button">선택상품 삭제</button></td>
-<<<<<<< HEAD
 							<td colspan="5"><button id="total_remove_btn" class="btn_del_bag" type="button">장바구니 비우기</button></td>
-=======
-							<td colspan="4"><button id="total_remove_btn" class="btn_del_bag" type="button">장바구니 비우기</button></td>
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
->>>>>>> 28e8b97d5e0f404d82826a815bb112115475c210
 						</tr>
 					</tfoot>
 				</table>
@@ -161,67 +102,36 @@
 			</div>
 		</div>
 		<div class="btn_div">
-<<<<<<< HEAD
-			<button class="btn_bag" type="button">전체상품주문</button>
-			<button class="btn_bag" type="button">선택상품주문</button>
-			<button class="btn_bag" type="button">쇼핑계속하기</button>
-=======
 			<button id="total_order_btn" class="btn_bag" type="button">전체상품주문</button>
 			<button id="sel_order_btn" class="btn_bag" type="button">선택상품주문</button>
 			<button  id="home" class="btn_bag" type="button">쇼핑계속하기</button>
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 		</div>
 		<!-- 코드 종료 -->
 		<footer>
 			<%@ include file="../include/bottom.jsp"%>
 		</footer>
 	</div>
-<<<<<<< HEAD
-	<script>
-		
-=======
 	
 	<script>
 		//  처음 로딩될떄 뿌려주는 것
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 		$(document).ready(function(){
 			loadBagList({"pageNum":1});
 		});
 		// 리스트 뿌리긔~
-<<<<<<< HEAD
-		var deliveryPrice = 3000;
-		var loadBagList = function (sendData){
-=======
-		
 		var loadBagList = function (sendData){
 			$("#tbody_bagList").empty();
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 			$.ajax({
 				url: "${pageContext.request.contextPath}/myBag/myBagList.do",
 				type: "post",
 				data: sendData,
 				dateType:"json",
 				success : function(result){
-<<<<<<< HEAD
-					console.log("result ::: ")
-					console.log(result)
-					console.log(typeof(result))
-					result = JSON.parse(result);
-					console.log(typeof(result))
-					console.log(result)
-					console.log(result.length)
-					if(result.length>0){
-						var priceSum = 0;
-						var deliverySum = 0;
-						var totalPrice = 0;
-=======
 					result = JSON.parse(result);
 					var priceSum = 0;
 					var deliverySum = 0;
 					var totalPrice = 0;
 					var deliveryPrice = 3000;
 					if(result.length>0){
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 						for(var i=0;i<result.length;i++){
 							var sumPrice = result[i].bCnt*result[i].pPrice;
 							priceSum += sumPrice;
@@ -229,23 +139,6 @@
 							totalPrice += sumPrice+deliveryPrice;
 							var tableAdd = "";
 							tableAdd += "<tr>";
-<<<<<<< HEAD
-							tableAdd += "<td><input id='sel_box"+i+"' type='checkbox' name='sel_box'/></td>";
-							tableAdd += "<td><img id='sel_img"+i+"' src='${pageContext.request.contextPath}/upload/"+result[i].pPath+"/"+result[i].pReal+"' width='80' height='106' /></td>";
-							tableAdd += "<td><div id='sel_name"+i+"'>"+result[i].pName+"</div></td>";
-							tableAdd += "<td><div id='sel_price"+i+"'>￦"+numberWithCommas(result[i].pPrice)+"</div></td>";
-							tableAdd += "<td>"+result[i].bCnt+"</td>";
-							tableAdd += "<td><div id='sel_delivery"+i+"'>￦"+numberWithCommas(deliveryPrice)+"</div></td>";
-							tableAdd += "<td><div id='sel_sumSub"+i+"'>￦"+numberWithCommas(sumPrice+deliveryPrice)+"</div></td>";
-							tableAdd += "<td><button class='btn_sel_order' type='button'>주문하기</button><br>";
-							tableAdd += "<button class='btn_sel_del' type='button'>×삭제</button></td>";
-							tableAdd += "</tr>";
-							$("#tbody_bagList").append(tableAdd);
-						}
-						$("#priceSum").html("￦"+numberWithCommas(priceSum));
-						$("#deliverySum").html("￦"+numberWithCommas(deliverySum));
-						$("#totalPrice").html("￦"+numberWithCommas(totalPrice));
-=======
 							tableAdd += "<td><input id='sel_box"+result[i].bNo+"' type='checkbox' name='"+result[i].bNo+"'/></td>";
 							tableAdd += "<td><img id='sel_img"+result[i].bNo+"' src='${pageContext.request.contextPath}/upload/"+result[i].pPath+"/"+result[i].pReal+"' width='80' height='106' /></td>";
 							tableAdd += "<td><div id='sel_name"+result[i].bNo+"'>"+result[i].pName+"</div></td>";
@@ -258,7 +151,6 @@
 							tableAdd += "<button id='btn_sel_del_"+result[i].bNo+"' class='btn_sel_del' type='button'>×삭제</button></td>";
 							tableAdd += "</tr>";
 							$("#tbody_bagList").append(tableAdd);
-							console.log(result[i].bSize);
 						}
 						console.log(result)
 						// 버튼 이벤트 설정 함수 호출
@@ -267,7 +159,6 @@
 						checkBoxChange();
 						// Cnt수정 이벤트 설정 호출
 						updateCnt()
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 					}else{
 						var tableAdd = "";
 						tableAdd += "<tr>";
@@ -275,18 +166,6 @@
 						tableAdd += "</tr>";
 						$("#tbody_bagList").append(tableAdd);
 					}
-<<<<<<< HEAD
-				},
-				error: function(errorMsg){
-					console.log("errorMsg ::: ",errorMsg);
-					console.log("실패~~~~~상품정보~~")
-				}
-			});	
-		};
-		function numberWithCommas(price) {
-		    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		}
-=======
 					$("#priceSum").html(numberWithCommas(priceSum));
 					$("#deliverySum").html(numberWithCommas(deliverySum));
 					$("#totalPrice").html(numberWithCommas(totalPrice));
@@ -298,15 +177,11 @@
 		};
 		
 		// 전체체크 박스 눌렀을때 하위 체크박스 선택/해제 함수
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 		$("#sel_box_All").on("change",function(){
 			$("#tbody_bagList [id^=sel_box]").each(function(){
 				this.checked = $("#sel_box_All").is(":checked")
 			})
 		});
-<<<<<<< HEAD
-		
-=======
 		// 체크박스가 모두 체크/체크해제 되었을 경우 전체체크박스 바꾸기
 		function checkBoxChange(){
 			var $checkBoxChange =  $("#tbody_bagList [id^=sel_box]");
@@ -412,8 +287,6 @@
 		$("#home").on("click",function(){
 			location.href = "${pageContext.request.contextPath}/";
 		});
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
-			
 	</script>
 </body>
 </html>

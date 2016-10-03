@@ -21,11 +21,6 @@
 		and b.p_no = p.p_no
 		and m.m_id = #{id}
 		order by b.b_no desc
-<<<<<<< HEAD
-		limit #{pageNum},5
-	</select>
-=======
-<!-- 		limit #{pageNum},5 -->
 	</select>
 	<delete id="deleteMyBag" parameterType="int">
 		delete from mybag where b_no in 
@@ -42,7 +37,6 @@
 	<insert id="insertCntMyBag" parameterType="myBagVO">
 		insert into mybag(p_no, m_no, b_cnt, b_size)values(#{pNo},#{mNo},#{bCnt},#{b_size});
 	</insert>
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 </mapper>
 
 

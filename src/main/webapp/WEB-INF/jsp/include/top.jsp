@@ -66,10 +66,7 @@
 			</div>
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/search/search.do">검색</a></li>
-<<<<<<< HEAD
 				<li><a href="${pageContext.request.contextPath}/file/fileUploadForm.do">관리자</a></li>
-=======
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 			</ul>
 			</li>
 
@@ -429,29 +426,16 @@
 			// 나의 DB에 정보가 있으면 로그인.
 			// ------------------
 			// 아이디가 있는지 확인
-//				var fb_login_flag;
 			$.ajax({
 				url:"${pageContext.request.contextPath}/login/fbCheck.do",
 				type:"post",
 				data:member,
 				dateType:"json",
-//					async: false,
 				success : function(resultMsg){
-<<<<<<< HEAD
-					console.log("성공~~~~페이스북~~")
-=======
-// 					console.log("성공~~~~페이스북~~")
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 					location.reload();
-//						$("#loginForm").modal('hide');
 					// 로그인 가능 - 로그인
 				},
 				error: function(errorMsg){
-<<<<<<< HEAD
-					console.log("실패~~~~~페이스북~~")
-=======
-// 					console.log("실패~~~~~페이스북~~")
->>>>>>> d4e1ef708a6df85f351e9bfd110722808d15b6fe
 					// 로그인 불가 - 회원가입
 				}
 			})
