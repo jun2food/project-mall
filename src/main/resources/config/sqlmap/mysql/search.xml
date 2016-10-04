@@ -19,7 +19,6 @@
 	<select id="searchPage" parameterType="map" resultMap="productMap">
 		select *
 		from product
-		
 		<trim prefix="where" prefixOverrides="and">
 			<if test="pCategory1 != ''">and  p_category1 = #{pCategory1}</if>
 			<if test="pName != ''">and p_name like CONCAT('%',#{pName},'%')</if>
@@ -27,9 +26,10 @@
 			<if test="price2 != ''"><![CDATA[and  p_price <= #{price2}]]></if>
 			<if test="pCategory2 != ''">and  p_category2 = #{pCategory2}</if>
 		</trim>
-		
 		order by p_reg_date desc
-<!-- 		<![CDATA[ limit  #{page}, 8 ]]> -->
+		<if test="page != null">
+		LIMIT  1,5
+		</if>
 	</select>
 
 
