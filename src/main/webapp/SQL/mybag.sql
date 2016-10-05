@@ -36,3 +36,18 @@ select * from mybag;
 
 
 
+=======
+select *
+from member m,mybag b,product p
+where m.m_no=b.m_no
+and b.p_no = p.p_no
+order by b.b_no desc
+limit 1,1
+
+select * from mybag;
+
+select *
+from product
+order by p_reg_date desc
+LIMIT   1, 5
+>>>>>>> 86d4bf541b91225b601a434b6ab9d9ba03b58e0a

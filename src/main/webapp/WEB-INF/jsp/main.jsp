@@ -76,8 +76,8 @@ h1{
 #carousel figure{
 	display: block;
 	position: absolute;
-	width: 186px;
-	height: 116px;
+	width: 250px;
+	height: 300px;
 	left: 10px;
 	top: 10px;
 	background: black;
@@ -85,14 +85,11 @@ h1{
 	border: solid 5px black;
 }
 #carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px);}
-#carousel figure:nth-child(2) { transform: rotateY(40deg) translateZ(288px);}
-#carousel figure:nth-child(3) { transform: rotateY(80deg) translateZ(288px);}
-#carousel figure:nth-child(4) { transform: rotateY(120deg) translateZ(288px);}
-#carousel figure:nth-child(5) { transform: rotateY(160deg) translateZ(288px);}
-#carousel figure:nth-child(6) { transform: rotateY(200deg) translateZ(288px);}
-#carousel figure:nth-child(7) { transform: rotateY(240deg) translateZ(288px);}
-#carousel figure:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
-#carousel figure:nth-child(9) { transform: rotateY(320deg) translateZ(288px);}
+#carousel figure:nth-child(2) { transform: rotateY(72deg) translateZ(288px);}
+#carousel figure:nth-child(3) { transform: rotateY(144deg) translateZ(288px);}
+#carousel figure:nth-child(4) { transform: rotateY(216deg) translateZ(288px);}
+#carousel figure:nth-child(5) { transform: rotateY(288deg) translateZ(288px);}
+#carousel figure:nth-child(6) { transform: rotateY(300deg) translateZ(288px);}
 
 img{
 	-webkit-filter: grayscale(1);
@@ -119,17 +116,7 @@ img:hover{
 	<div class="container">
 		<!-- 코드시작 -->
 		<a href = "${pageContext.request.contextPath}/order/orderForm.do">주문하긔</a><br>
-		
 		<div id="carousel">
-			<figure><img src="http://lorempixel.com/186/116/nature/1" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/2" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/3" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/4" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/5" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/6" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/7" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/nature/8" alt=""></figure>
-			<figure><img src="http://lorempixel.com/186/116/people/9" alt=""></figure>
 		</div>
 	</div>
 		<!-- 코드 종료 -->
@@ -138,4 +125,34 @@ img:hover{
 		</footer>
 		
 </body>
+<script>
+//	그림 넣어주긔
+	var html = "";
+	$(document).ready(function(){
+		$.ajax({
+			url : "${pageContext.request.contextPath}/mainList.do",
+			type : "post",
+			dataType : "json"
+		})
+		.done(success)
+		.fail(error)
+	});
+	function success(result){
+		console.log(result)
+		for(var i in result){
+			console.log("주소"+result[i].pPath)
+			console.log("주소"+result[i].pReal)
+			html += "<figure><img src='${pageContext.request.contextPath}/upload"+result[i].pPath+"/"+result[i].pReal+"' alt=''></figure>"
+		}
+		$("#carousel").append(html);
+		
+	};
+	function error(result){
+		console.log("실패")
+		console.log(result)
+	};
+</script>
+
+
+
 </html>

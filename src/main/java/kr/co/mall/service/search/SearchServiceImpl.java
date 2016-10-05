@@ -18,7 +18,12 @@ public class SearchServiceImpl implements SearchService {
 	
 	@Override
 	public List<ProductVO> searchPage(Map<String, String> map) {
-		return sDao.searchPage(map);
+		System.out.println("in");
+		System.out.println(map.get("page"));
+		List<ProductVO> list = sDao.searchPage(map);
+		System.out.println(list.get(0).getpPath());
+		System.out.println(list.get(0).getpOri());
+		return list;
 		
 	}
 	
