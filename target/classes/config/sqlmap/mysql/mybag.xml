@@ -35,7 +35,7 @@
 		update mybag set b_cnt = #{bCnt} where b_no = #{bNo}
 	</update>
 	<insert id="insertCntMyBag" parameterType="myBagVO">
-		insert into mybag(p_no, m_no, b_cnt, b_size)values(#{pNo},#{mNo},#{bCnt},#{b_size});
+		insert into mybag(p_no, m_no, b_cnt, b_size)values(#{pNo},#{mNo},#{bCnt},#{bSize});
 	</insert>
 </mapper>
 

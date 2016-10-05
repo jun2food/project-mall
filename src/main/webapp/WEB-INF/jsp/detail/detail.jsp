@@ -105,7 +105,16 @@ td{width: 330px;height: 29px;}
 		<br><br>
 		<div id=btnArea>
 		<a href="#">바로구매</a>
-		<a href="#">장바구니</a>
+		<form id = "mybag" method="post" action="${pageContext.request.contextPath}/myBag/myBagInsert.do">
+		
+		
+		<input type="hidden" name = "pNo" value="${detailPage.pNo}"/>	
+			
+<%-- 		<input type="hidden" name = "mNo" value="${user.mNo}"/>		 --%>
+				
+		<button id="submitBag" type="submit">장바구니</button>
+		</form>
+		</div>
 		</div>
 		</div>
 		
@@ -129,11 +138,12 @@ td{width: 330px;height: 29px;}
 	<script>
 	
 		var html="";
-		
+		var html1="";
 		// db에서 카테고리에 맞는 사이즈 가져오기
 		var cate=${categorySize};
-		alert(cate);
+	
 		for(var i = 0 ; i<cate.length;i++){
+			
 			html+= "<option value="+cate[i]+">"+cate[i]+"</option>";
 		}
 		
@@ -141,6 +151,22 @@ td{width: 330px;height: 29px;}
 		
 		$("#viewPrice").html(numberWithCommas("${detailPage.pPrice}"));
 		$("#sumPrice").html(numberWithCommas("${detailPage.pPrice}"));
+		
+		$("#submitBag").click(function(e){
+			var html1 = "";
+			if($("#size1 option:selected").val()!="*" && $("#size1 option:selected").val()!="**" ){
+				alert('${detailPage.pNo}');
+				alert($("#size1 option:selected").val());
+				html1 += "<input type='hidden' name = 'bSize' value="+$("#size1 option:selected").val()+ "></input>";
+				$("#mybag").append(html1);
+			}else {
+				alert("옵션을 선택해주세요");
+				$("size1").focus();
+				e.preventDefault();
+			}
+			
+		});
+		
 		
 		
 		
