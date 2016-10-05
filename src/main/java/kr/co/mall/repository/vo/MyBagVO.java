@@ -89,4 +89,12 @@ public class MyBagVO {
 	public void setpPath(String pPath) {
 		this.pPath = pPath;
 	}
+	@Override
+	public String toString() {
+		return "MyBagVO [bNo=" + bNo + ", mNo=" + mNo + ", pNo=" + pNo + ", bCnt=" + bCnt + ", bSize=" + bSize
+				+ ", pageNum=" + pageNum + ", id=" + id + ", pPrice=" + pPrice + ", pName=" + pName + ", pReal=" + pReal
+				+ ", pPath=" + pPath + "]";
+	}
+	
+	
 }

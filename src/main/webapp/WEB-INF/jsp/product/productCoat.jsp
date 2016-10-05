@@ -132,7 +132,7 @@ footer {
 
 		// 처음 들어왔을때 db에 있는 상품수
 		var countP = function() {
-			alert("들어오니???")
+			
 			$.ajax({
 				url : "selectCount.json",
 				data : 	{

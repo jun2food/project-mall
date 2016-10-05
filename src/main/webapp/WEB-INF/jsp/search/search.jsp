@@ -134,7 +134,7 @@
 			var pCount = 0;
 			
 			for (var i = 0; i < result.length; i++) {
-			console.log("드렁왔니2")
+			
 				pCount++;
 				var search = result[i];
 				if (pCount % 5 == 0) {

@@ -15,6 +15,8 @@ create table  categorySize(
 drop table categorySize;
 drop table image_file;
 
+select * from categorySize;
+
 select * from image_file;
 
 insert into categorySize (p_category1,c_size)

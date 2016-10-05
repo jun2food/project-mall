@@ -114,6 +114,7 @@ footer {
 			</p>
 		</div>
 		<!-- 코드 종료 -->
+		
 		<footer>
 			<%@ include file="../include/bottom.jsp"%>
 		</footer>
